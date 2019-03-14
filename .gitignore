@@ -28,14 +28,10 @@ HELP.md
 ### Angular ###
 ## Angular ##
 # compiled output
-/resources/static
+src/main/resources/static
 /tmp
 /app/**/*.js
 /app/**/*.js.map
-
-# dependencies
-src/main/webapp/node_modules
-/bower_components
 
 # misc
 /.sass-cache
