@@ -78,7 +78,7 @@
                 <configuration>
                     <nodeVersion>v11.10.1</nodeVersion>
                     <npmVersion>6.7.0</npmVersion>
-                    <workingDirectory>src/main/webapp</workingDirectory>
+                    <workingDirectory>src/main/frontend</workingDirectory>
                 </configuration>
                 <executions>
                     <!-- Install our node and npm version to run npm/node scripts-->
