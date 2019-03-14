@@ -25,14 +25,6 @@ HELP.md
 /.nb-gradle/
 /build/
 
-### Angular ###
-## Angular ##
-# compiled output
-src/main/resources/static
-/tmp
-/app/**/*.js
-/app/**/*.js.map
-
 # misc
 /.sass-cache
 /connect.lock
