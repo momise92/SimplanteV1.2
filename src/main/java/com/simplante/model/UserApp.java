@@ -46,33 +46,61 @@ public class UserApp {
     private String lastName;
 
     @Column(name = "active", nullable = false)
-    private Boolean active;
+    private Boolean active = true;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Set<Post> posts = new HashSet<>();
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleApp> roles = new HashSet<>();
 
-    @OneToMany(mappedBy = "user", fetch =FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Comment> comments = new HashSet<>();
 
     public UserApp() {
 
     }
 
-    public UserApp(String email, String password,String username, String name, String lastName, Set<Post> posts,
-                   Set<RoleApp> roles, Set<Comment> comments) {
+    public UserApp(String email, String password, String username, String name, String lastName) {
         this.email = email;
         this.password = password;
         this.username = username;
         this.name = name;
         this.lastName = lastName;
-        this.posts = posts;
-        this.roles = roles;
-        this.comments = comments;
+    }
+
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+        comment.setUserId(this.getId());
+    }
+
+    public void removeComment(Comment comment) {
+        this.comments.remove(comment);
+        comment.setUserId(null);
+    }
+
+    public void removeAllComments() {
+        for (Comment comment : this.comments) {
+            removeComment(comment);
+        }
+    }
+
+    public void addPost(Post post) {
+        this.posts.add(post);
+        post.setUserId(this.getId());
+    }
+
+    public void removePost(Post post) {
+        this.posts.remove(post);
+        post.setUserId(null);
+    }
+
+    public void removeAllPosts() {
+        for (Post post : this.posts) {
+            removePost(post);
+        }
     }
 
     public Long getId() {

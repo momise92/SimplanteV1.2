@@ -1,10 +1,6 @@
 package com.simplante.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class RoleApp {
@@ -16,10 +12,6 @@ public class RoleApp {
 
     @Column(name = "role", unique = true)
     private String role;
-
-    @ManyToMany(mappedBy = "roles")
-    @JsonIgnore
-    private Set<UserApp> users = new HashSet<>();
 
     public RoleApp() {
     }
@@ -42,13 +34,5 @@ public class RoleApp {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public Set<UserApp> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<UserApp> users) {
-        this.users = users;
     }
 }

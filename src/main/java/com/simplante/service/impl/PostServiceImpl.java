@@ -43,7 +43,6 @@ public class PostServiceImpl implements PostService {
         try {
             post.setCreateDate(LocalDateTime.now());
             post.setLastModified(LocalDateTime.now());
-
             return postRepository.save(post);
 
         } catch (Exception e) {
