@@ -27,19 +27,7 @@ export class SimplantesService {
   getAllSimplantes(): Observable<Simplante[]> {
     return this.http.get<Simplante[]>(this.simplanteUrl).pipe(resp => resp);
   }
-  // getSimplantes(motCle: string, size: number, page: number) {
-  //   return this.http
-  //     .get(
-  //       this.simplanteUrl +
-  //         'chercherSimplante?mc=' +
-  //         motCle +
-  //         '&size=' +
-  //         size +
-  //         '&page=' +
-  //         page
-  //     )
-  //     .pipe(resp => resp);
-  // }
+
   saveSimplante(simplante: Simplante) {
     return this.http.post(this.simplanteUrl, simplante).pipe(resp => resp);
   }

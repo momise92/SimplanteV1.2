@@ -20,11 +20,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.simplante.security.SecurityConstants.*;
-
+@SuppressWarnings("SpellCheckingInspection")
 public class JWTAuthentificationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
     public JWTAuthentificationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
@@ -35,7 +34,7 @@ public class JWTAuthentificationFilter extends UsernamePasswordAuthenticationFil
         try {
             UserApp userApp = new ObjectMapper().readValue(request.getInputStream(), UserApp.class);
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    userApp.getUsername(), userApp.getPassword(), new ArrayList<>()));
+                    userApp.getUsername(), userApp.getPassword()));
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
@@ -45,14 +44,19 @@ public class JWTAuthentificationFilter extends UsernamePasswordAuthenticationFil
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
+
+        User user=(User)authResult.getPrincipal();
         List<String> roles = new ArrayList<>();
-        authResult.getAuthorities().forEach(a -> roles.add(a.getAuthority()));
+        authResult.getAuthorities().forEach(a ->{
+            roles.add(a.getAuthority());
+        });
 
         String token = JWT.create()
-                .withSubject(((User) authResult.getPrincipal()).getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .withArrayClaim("roles", roles.toArray(new String[0]))
-                .sign(Algorithm.HMAC512(SECRET.getBytes()));
-        response.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+                .withIssuer(request.getRequestURI())
+                .withSubject(user.getUsername())
+                .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
+                .withArrayClaim("authorities", roles.toArray(new String[roles.size()]))
+                .sign(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()));
+        response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
     }
 }

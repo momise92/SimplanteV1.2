@@ -1,6 +1,6 @@
 package com.simplante.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -15,8 +15,10 @@ public class UserRegistrationDto {
     private String email;
 
     @Length(min = 5, message = "*Your password must have at least 5 characters")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String rePassword;
 
     @NotEmpty(message = "*Please provide your name")
@@ -46,7 +48,6 @@ public class UserRegistrationDto {
         this.email = email;
     }
 
-    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -55,7 +56,6 @@ public class UserRegistrationDto {
         this.password = password;
     }
 
-    @JsonIgnore
     public String getRePassword() {
         return rePassword;
     }

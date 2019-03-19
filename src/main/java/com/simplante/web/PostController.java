@@ -56,7 +56,6 @@ public class PostController {
                 HttpStatus.OK);
     }
 
-
     /**
      * @return
      */
@@ -73,6 +72,7 @@ public class PostController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
 
     @GetMapping("/{id}/categories")
     public ResponseEntity<?> getCategoryByPosts(@PathVariable Long id) {

@@ -20,12 +20,10 @@ public class UserAppController {
 
     private UserAppService userAppService;
     private UserMapper userMapper;
-    private CommentService commentService;
 
     public UserAppController(UserAppService userAppService, UserMapper userMapper, CommentService commentService) {
         this.userAppService = userAppService;
         this.userMapper = userMapper;
-        this.commentService = commentService;
     }
 
 

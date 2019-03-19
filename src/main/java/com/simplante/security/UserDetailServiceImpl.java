@@ -1,5 +1,6 @@
 package com.simplante.security;
 
+import com.simplante.model.RoleApp;
 import com.simplante.model.UserApp;
 import com.simplante.service.UserAppService;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +16,7 @@ import java.util.Collection;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
-    private UserAppService userAppService;
+    private final UserAppService userAppService;
 
     public UserDetailServiceImpl(UserAppService userAppService) {
         this.userAppService = userAppService;
@@ -23,17 +24,14 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserApp userApp = new UserApp();
-        try {
-            userApp = userAppService.findUserByUsername(username);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (username==null)
+           UserApp userApp = userAppService.findUserByUsername(username);
+        if (userApp == null)
             throw new UsernameNotFoundException("INVALID USER");
+
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        userApp.getRoles().forEach(roleApp ->
-                authorities.add(new SimpleGrantedAuthority(roleApp.getRole())));
-        return new User(userApp.getUsername(),userApp.getPassword(),authorities);
+        for (RoleApp roleApp : userApp.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority("Role_"+roleApp.getRole()));
+        }
+        return new User(userApp.getUsername(), userApp.getPassword(), authorities);
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserAppService {
     List<UserApp> ListUsers();
     UserApp findById(Long id) throws Exception;
-    UserApp findUserByUsername(String username) throws Exception;
+    UserApp findUserByUsername(String username);
     UserApp createUser(UserApp userApp) throws Exception;
     UserApp updateUser(UserApp userApp) throws Exception;
     void deleteUser(Long id);

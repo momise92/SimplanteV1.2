@@ -45,8 +45,8 @@ public class UserApp {
     @NotEmpty(message = "*Please provide your last name")
     private String lastName;
 
-    @Column(name = "active", nullable = false)
-    private Boolean active = true;
+    @Column(nullable = false)
+    private Boolean IsActive = true;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     @JsonIgnore
@@ -159,12 +159,12 @@ public class UserApp {
         this.lastName = lastName;
     }
 
-    public Boolean getActive() {
-        return active;
+    public Boolean getIsActive() {
+        return IsActive;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setIsActive(Boolean isActive) {
+        this.IsActive = isActive;
     }
 
     public Set<Post> getPosts() {

@@ -5,7 +5,6 @@ import com.simplante.service.PostService;
 import com.simplante.service.UserAppService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,17 +16,15 @@ public class DemoData implements ApplicationRunner {
     private UserAppRepository userAppRepository;
     private UserAppService userAppService;
     private RoleAppRepository roleAppRepository;
-    private PasswordEncoder passwordEncoder;
 
     public DemoData(CategoryRepository categoryRepository, PostService postService, PostRepository postRepository,
-                    CommentRepository commentRepository, UserAppRepository userAppRepository, UserAppService userAppService, RoleAppRepository roleAppRepository, PasswordEncoder passwordEncoder) {
+                    CommentRepository commentRepository, UserAppRepository userAppRepository, UserAppService userAppService, RoleAppRepository roleAppRepository) {
         this.categoryRepository = categoryRepository;
         this.postService = postService;
         this.commentRepository = commentRepository;
         this.userAppRepository = userAppRepository;
         this.userAppService = userAppService;
         this.roleAppRepository = roleAppRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -58,10 +55,10 @@ public class DemoData implements ApplicationRunner {
         roleAppRepository.save(new RoleApp("ADMIN"));
         roleAppRepository.save(new RoleApp("USER"));
 
-        userAppRepository.save( new UserApp("test@gmail.com", passwordEncoder.encode("password"),"admin",
+        userAppService.createUser( new UserApp("test@gmail.com", "password","admin",
                 "Carter","Hash"));
 
-        userAppService.createUser( new UserApp("test2@gmail.com", passwordEncoder.encode("password"),"User",
+        userAppService.createUser( new UserApp("test2@gmail.com", "password","User",
                 "Carter","Guetchly"));
 
         userAppService.addRoleToUser("admin","ADMIN");

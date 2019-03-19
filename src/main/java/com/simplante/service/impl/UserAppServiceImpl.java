@@ -43,10 +43,9 @@ public class UserAppServiceImpl implements UserAppService {
     }
 
     @Override
-    public UserApp findUserByUsername(String username) throws Exception {
-        UserApp userApp = userAppRepository.findByUsername(username);
-        if(userApp == null) throw new Exception("USER "+username+" NOT EXIST");
-        return userApp;
+    public UserApp findUserByUsername(String username) {
+        return userAppRepository.findByUsername(username);
+
     }
 
     @Transactional
@@ -54,9 +53,11 @@ public class UserAppServiceImpl implements UserAppService {
     public UserApp createUser(UserApp userApp) throws Exception {
         if (userAppRepository.existsByUsername(userApp.getUsername().toLowerCase()))
             throw new Exception("user already exist");
+        if (userAppRepository.existsByEmail(userApp.getEmail()))
+            throw new Exception("Email already exist");
         if (userApp.getRegisterDate() == null)
             userApp.setRegisterDate(LocalDateTime.now());
-        /*userApp.setActive(true);*/
+        /*userApp.setIsActive(true);*/
         userApp.setUsername(userApp.getUsername().toLowerCase());
         userApp.setPassword(passwordEncoder.encode(userApp.getPassword()));
         userApp.getRoles().add(roleAppRepository.findByRole("USER"));
@@ -75,7 +76,7 @@ public class UserAppServiceImpl implements UserAppService {
         userApp.setName(userApp.getName());
         userApp.setEmail(userApp.getEmail());
         userApp.setUsername(userApp.getUsername());
-        userApp.setActive(userApp.getActive());
+        userApp.setIsActive(userApp.getIsActive());
         return userAppRepository.save(userApp);
     }
 

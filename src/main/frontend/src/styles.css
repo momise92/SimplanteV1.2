@@ -2,3 +2,29 @@
 .breakWord {
   word-break: break-word;
 }
+/* html{
+  overflow-x: hidden;
+}
+body{
+  background-color: #e9ebee !important;
+} */
+.gedf-wrapper {
+  margin-top: 0.97rem;
+  padding-top: 50px;
+}
+
+@media (min-width: 992px) {
+  .gedf-main {
+      padding-left: 4rem;
+      padding-right: 4rem;
+  }
+  .gedf-card {
+      margin-bottom: 2.77rem;
+  }
+}
+
+/* *Reset Bootstrap
+.dropdown-toggle::after {
+  content: none;
+  display: none;
+} */

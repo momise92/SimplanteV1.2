@@ -7,10 +7,10 @@ import { OneSimplanteComponent } from './one-simplante/one-simplante.component';
 
 const routes: Routes = [
   { path: 'simplante', component: SimplantesComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'addSimplante', component: AddSimplanteComponent },
+  // { path: '', component: HomeComponent },
+  { path: 'ajouter-simplante', component: AddSimplanteComponent },
   { path: 'simplante/:id', component: OneSimplanteComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  // { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
