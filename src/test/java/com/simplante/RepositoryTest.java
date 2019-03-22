@@ -32,7 +32,7 @@ public class RepositoryTest {
     @Test
     public void TestCategory() {
         Category c = new Category("comique");
-        c.addPost(new Post("Title","Somebody test category"));
+        c.addPost(new Post("Title", "Somebody test category"));
         categoryRepository.save(c);
 
         assertNotNull(postRepository.findByCategoryId(1L));
@@ -63,7 +63,7 @@ public class RepositoryTest {
     @Test
     public void testComment() {
         //findByProject
-        Post post = postRepository.save(new Post("Title","Welcome"));
+        Post post = postRepository.save(new Post("Title", "Welcome"));
         post.addComment(new Comment("Pas mal !!"));
         post.addComment(new Comment("in progress"));
         postRepository.save(post);

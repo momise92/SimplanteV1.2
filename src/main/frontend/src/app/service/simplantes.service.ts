@@ -1,34 +1,40 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, tap, catchError } from 'rxjs/operators';
-import { Simplante } from '../model/model.simplante';
-import { Identifiers } from '@angular/compiler';
-import { Observable, of } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {map, tap, catchError} from 'rxjs/operators';
+import {Simplante} from '../model/model.simplante';
+import {Identifiers} from '@angular/compiler';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class SimplantesService {
-  // URL de l'api
-  // simplanteUrl = 'http://localhost:8080/simplante';
-  simplanteUrl = 'http://localhost:8080/api/posts';
+    // URL de l'api
+    // simplanteUrl = 'http://localhost:8080/simplante';
+    simplanteUrl = 'http://localhost:8080/api/posts';
+    categoriesUrl = 'http://localhost:8080/api/categories';
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
-  getSimplante(id: number | string) {
-    return this.getAllSimplantes().pipe(
-      // (+) before `id` turns the string into a number
-      map((simplantes: Simplante[]) =>
-        simplantes.find(simplante => simplante.id === +id)
-      )
-    );
-  }
+    getSimplante(id: number | string) {
+        return this.getAllSimplantes().pipe(
+            // (+) before `id` turns the string into a number
+            map((simplantes: Simplante[]) =>
+                simplantes.find(simplante => simplante.id === +id)
+            )
+        );
+    }
 
-  getAllSimplantes(): Observable<Simplante[]> {
-    return this.http.get<Simplante[]>(this.simplanteUrl).pipe(resp => resp);
-  }
+    getAllSimplantes(): Observable<Simplante[]> {
+        return this.http.get<Simplante[]>(this.simplanteUrl).pipe(resp => resp);
+    }
 
-  saveSimplante(simplante: Simplante) {
-    return this.http.post(this.simplanteUrl, simplante).pipe(resp => resp);
-  }
+    saveSimplante(simplante: Simplante) {
+        return this.http.post(this.simplanteUrl, simplante).pipe(resp => resp);
+    }
+
+    getSimplanteByCategories(id: number): Observable<Simplante[]> {
+        return this.http.get<Simplante[]>(`${this.categoriesUrl}/${id}/posts`).pipe(resp => resp);
+    }
 }

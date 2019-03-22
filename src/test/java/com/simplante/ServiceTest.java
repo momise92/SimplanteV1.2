@@ -22,7 +22,7 @@ public class ServiceTest {
     public void testPostService() throws Exception {
 
         /* create */
-        Long id = postService.savePost(new Post("simplante1","premier service")).getId();
+        Long id = postService.savePost(new Post("simplante1", "premier service")).getId();
         assertNotNull(postService.findByTitle("simplante1"));
         assertEquals("simplante1", postService.findById(id).getTitle());
         assertEquals(1, postService.listPost().size());

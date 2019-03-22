@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+
 @RestController
 @RequestMapping("/api")
 @Slf4j
@@ -20,42 +21,56 @@ public class CommentController {
     private final CommentService commentService;
     private final PostService postService;
 
+
+    /**
+     * @param commentService
+     * @param postService
+     */
     public CommentController(CommentService commentService, PostService postService) {
         this.commentService = commentService;
         this.postService = postService;
     }
 
 
-
+    /**
+     * @return
+     */
     @GetMapping("/comments")
-    public ResponseEntity<?> listAllComments(){
+    public ResponseEntity<?> listAllComments() {
         log.debug("get list Comment");
-        return new ResponseEntity<>(commentService.ListComments(),HttpStatus.OK);
+        return new ResponseEntity<>(commentService.ListComments(), HttpStatus.OK);
     }
 
 
     /**
+     * @param id
      * @return
      */
     @GetMapping("/comments/{id}")
-    public ResponseEntity<?>findById(@PathVariable Long id){
+    public ResponseEntity<?> findById(@PathVariable Long id) {
         try {
             if (commentService.findById(id) == null)
-                return new ResponseEntity<Object>(new Exception("Category not exist"),HttpStatus.NOT_FOUND);
+                return new ResponseEntity<Object>(new Exception("Category not exist"), HttpStatus.NOT_FOUND);
 
             log.debug("Get comment by ID");
-            return new ResponseEntity<>(commentService.findById(id),HttpStatus.OK);
+            return new ResponseEntity<>(commentService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
             log.error("Find by id : ", e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
+
+    /**
+     * @param postId
+     * @param comment
+     * @return
+     */
     @PostMapping("/posts/{postId}/comments")
     public ResponseEntity<Object> createComment(@PathVariable Long postId, @RequestBody @Valid Comment comment) {
         try {
             if (comment.getId() != null)
-                return new ResponseEntity<>(new Exception("Please remove the Id"),HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<>(new Exception("Please remove the Id"), HttpStatus.UNAUTHORIZED);
             Post post = postService.findById(postId);
             if (post == null)
                 throw new Exception("POST_NOT_FOUND");
@@ -67,12 +82,18 @@ public class CommentController {
         }
     }
 
+
+    /**
+     * @param id
+     * @param comment
+     * @return
+     */
     @PutMapping("/comments/{id}")
     public ResponseEntity<Object> updateComment(@PathVariable Long id, @RequestBody @Valid Comment comment) {
         try {
             Comment comment1 = commentService.findById(id);
             if (comment1 == null)
-                return new ResponseEntity<>(new Exception("COMMENT NOT FOUND"),HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(new Exception("COMMENT NOT FOUND"), HttpStatus.NOT_FOUND);
 
             comment.setId(id);
             comment.setPostId(comment1.getPostId());
@@ -84,11 +105,13 @@ public class CommentController {
         }
     }
 
+
     /**
+     * @param id
      * @return
      */
     @DeleteMapping("/comments/{id}")
-    public ResponseEntity<?>deleteComment(@PathVariable Long id){
+    public ResponseEntity<?> deleteComment(@PathVariable Long id) {
         try {
             if (commentService.findById(id) == null)
                 throw new Exception("Comment not exist");
@@ -100,6 +123,10 @@ public class CommentController {
         }
     }
 
+
+    /**
+     * @return
+     */
     @DeleteMapping("/comments")
     public ResponseEntity<Object> deleteAllComments() {
         try {

@@ -7,8 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CommentRepository extends JpaRepository<Comment,Long> {
-    List<Comment>findByPost(Post post);
+/**
+ *
+ */
+public interface CommentRepository extends JpaRepository<Comment, Long> {
+    List<Comment> findByPost(Post post);
+
     List<Comment> findAllByOrderByCreateDateDesc();
-    List<Comment>findByUser(UserApp userApp);
+
+    List<Comment> findByUser(UserApp userApp);
 }

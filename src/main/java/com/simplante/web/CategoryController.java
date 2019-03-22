@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/categories")
 @Slf4j
@@ -25,6 +26,12 @@ public class CategoryController {
     private final CategoryService categoryService;
 
 
+    /**
+     * @param postService
+     * @param categoryMapper
+     * @param postMapper
+     * @param categoryService
+     */
     public CategoryController(PostService postService, CategoryMapper categoryMapper,
                               PostMapper postMapper, CategoryService categoryService) {
         this.categoryMapper = categoryMapper;
@@ -32,36 +39,46 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping
-    public ResponseEntity<?> listAllCategories(){
-        log.debug("get list Categories");
-        return new ResponseEntity<>(categoryMapper.CategoriesToListDto(
-                categoryService.ListCategories()),HttpStatus.OK);
-    }
 
     /**
      * @return
      */
+    @GetMapping
+    public ResponseEntity<?> listAllCategories() {
+        log.debug("get list Categories");
+        return new ResponseEntity<>(categoryMapper.CategoriesToListDto(
+                categoryService.ListCategories()), HttpStatus.OK);
+    }
+
+
+    /**
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
-    public ResponseEntity<?>findById(@PathVariable Long id){
+    public ResponseEntity<?> findById(@PathVariable Long id) {
         try {
             if (categoryService.findById(id) == null)
-                return new ResponseEntity<Object>(new Exception("Category not exist"),HttpStatus.NOT_FOUND);
+                return new ResponseEntity<Object>(new Exception("Category not exist"), HttpStatus.NOT_FOUND);
 
             log.debug("Get post by ID");
-            return new ResponseEntity<>(categoryMapper.categoryToDto(categoryService.findById(id)),HttpStatus.OK);
+            return new ResponseEntity<>(categoryMapper.categoryToDto(categoryService.findById(id)), HttpStatus.OK);
         } catch (Exception e) {
             log.error("Find by id : ", e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
+    /**
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}/posts")
     public ResponseEntity<?> getPostsByCategory(@PathVariable Long id) {
         try {
             Category category = categoryService.findById(id);
             if (category == null)
-               return new ResponseEntity<Object>(new Exception("CATEGORY_NOT_FOUND "),HttpStatus.NOT_FOUND);
+                return new ResponseEntity<Object>(new Exception("CATEGORY_NOT_FOUND "), HttpStatus.NOT_FOUND);
             List<PostDto> result = postMapper.listPostsToListPostsDto(categoryService.getPostsByCategory(id));
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
@@ -70,27 +87,35 @@ public class CategoryController {
         }
     }
 
+    /**
+     * @param categoryDto
+     * @return
+     */
     @PostMapping
-    public ResponseEntity<Object>createCategory(@RequestBody @Valid CategoryDto categoryDto) {
+    public ResponseEntity<Object> createCategory(@RequestBody @Valid CategoryDto categoryDto) {
 
         try {
             if (categoryDto.getId() != null)
-                return new ResponseEntity<>(new Exception("Please remove the Id"),HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<>(new Exception("Please remove the Id"), HttpStatus.UNAUTHORIZED);
 
             if (categoryService.findByName(categoryDto.getName()) != null)
-                return new ResponseEntity<>(new Exception("Category already exist"),HttpStatus.CONFLICT);
+                return new ResponseEntity<>(new Exception("Category already exist"), HttpStatus.CONFLICT);
 
             Category result = categoryService.createCategory(categoryMapper.DtoToCategory(categoryDto));
             return new ResponseEntity<>(categoryMapper.categoryToDto(result), HttpStatus.CREATED);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
+    /**
+     * @param id
+     * @param categoryDto
+     * @return
+     */
     @PutMapping("/{id}")
-    public ResponseEntity<?>updateCategory(@PathVariable Long id, @RequestBody @Valid  CategoryDto categoryDto) {
+    public ResponseEntity<?> updateCategory(@PathVariable Long id, @RequestBody @Valid CategoryDto categoryDto) {
 
         try {
 
@@ -111,7 +136,7 @@ public class CategoryController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<?>deleteCategory(@PathVariable Long id){
+    public ResponseEntity<?> deleteCategory(@PathVariable Long id) {
         try {
             if (categoryService.findById(id) == null)
                 throw new Exception("This category not exist");
@@ -124,6 +149,9 @@ public class CategoryController {
 
     }
 
+    /**
+     * @return
+     */
     @DeleteMapping
     public ResponseEntity<Object> deleteAllCategories() {
         try {

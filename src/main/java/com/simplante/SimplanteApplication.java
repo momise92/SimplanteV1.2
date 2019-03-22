@@ -13,22 +13,12 @@ public class SimplanteApplication {
     public static void main(String[] args) {
         SpringApplication.run(SimplanteApplication.class, args);
     }
-    /*@Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedMethods("*").allowedOrigins("http://localhost:4200");
-            }
-        };
-    }*/
-
-
 
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

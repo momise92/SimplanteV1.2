@@ -6,6 +6,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 @Entity
 public class Comment {
 
@@ -31,13 +35,13 @@ public class Comment {
     private Long postId;
 
     @ManyToOne
-    @JoinColumn(name = "postId", insertable = false,updatable = false)
+    @JoinColumn(name = "postId", insertable = false, updatable = false)
     private Post post;
 
     private Long userId;
 
     @ManyToOne
-    @JoinColumn(name = "userId", insertable = false,updatable = false)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
     private UserApp user;
 
     public Comment() {
@@ -79,11 +83,19 @@ public class Comment {
         this.updateDate = updateDate;
     }
 
-    public Long getPostId() { return postId; }
+    public Long getPostId() {
+        return postId;
+    }
 
-    public void setPostId(Long postId) { this.postId = postId; }
+    public void setPostId(Long postId) {
+        this.postId = postId;
+    }
 
-    public Long getUserId() { return userId; }
+    public Long getUserId() {
+        return userId;
+    }
 
-    public void setUserId(Long userId) { this.userId = userId; }
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }

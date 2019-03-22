@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+
 @RestController
 @RequestMapping("/api/users")
 @Slf4j
@@ -21,6 +22,12 @@ public class UserAppController {
     private UserAppService userAppService;
     private UserMapper userMapper;
 
+
+    /**
+     * @param userAppService
+     * @param userMapper
+     * @param commentService
+     */
     public UserAppController(UserAppService userAppService, UserMapper userMapper, CommentService commentService) {
         this.userAppService = userAppService;
         this.userMapper = userMapper;
@@ -36,7 +43,9 @@ public class UserAppController {
         return new ResponseEntity<>(userMapper.listusersToListRegistrationDto(userAppService.ListUsers()), HttpStatus.OK);
     }
 
+
     /**
+     * @param id
      * @return
      */
     @GetMapping("/{id}")
@@ -53,6 +62,11 @@ public class UserAppController {
         }
     }
 
+
+    /**
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}/comments")
     public ResponseEntity<?> getCommentsByUser(@PathVariable Long id) {
         try {
@@ -66,7 +80,9 @@ public class UserAppController {
         }
     }
 
+
     /**
+     * @param userRegistrationDto
      * @return
      */
     @PostMapping
@@ -92,11 +108,14 @@ public class UserAppController {
         }
     }
 
+
     /**
+     * @param id
+     * @param userRegistrationDto
      * @return
      */
     @PutMapping("/{id}")
-    public ResponseEntity<?>updateUser(@PathVariable Long id, @RequestBody @Valid  UserRegistrationDto userRegistrationDto) {
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody @Valid UserRegistrationDto userRegistrationDto) {
 
         try {
 
@@ -112,11 +131,13 @@ public class UserAppController {
         }
     }
 
+
     /**
+     * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<?>deleteUser(@PathVariable Long id){
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         try {
             if (userAppService.findById(id) == null)
                 throw new Exception("This user not exist");

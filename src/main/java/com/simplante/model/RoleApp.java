@@ -2,6 +2,11 @@ package com.simplante.model;
 
 import javax.persistence.*;
 
+
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 @Entity
 public class RoleApp {
 

@@ -4,6 +4,7 @@ import com.simplante.dao.CommentRepository;
 import com.simplante.dao.RoleAppRepository;
 import com.simplante.dao.UserAppRepository;
 import com.simplante.model.Comment;
+import com.simplante.model.Post;
 import com.simplante.model.RoleApp;
 import com.simplante.model.UserApp;
 import com.simplante.service.UserAppService;
@@ -102,6 +103,11 @@ public class UserAppServiceImpl implements UserAppService {
             throw new Exception("Category not found" + userId);
         }
         return commentRepository.findByUser(userApp);
+    }
+
+    @Override
+    public List<Post> getPostByUser(String username) {
+        return null;
     }
 }
 

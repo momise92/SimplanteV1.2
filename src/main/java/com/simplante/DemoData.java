@@ -1,4 +1,5 @@
 package com.simplante;
+
 import com.simplante.dao.*;
 import com.simplante.model.*;
 import com.simplante.service.PostService;
@@ -13,16 +14,14 @@ public class DemoData implements ApplicationRunner {
     private CategoryRepository categoryRepository;
     private PostService postService;
     private CommentRepository commentRepository;
-    private UserAppRepository userAppRepository;
     private UserAppService userAppService;
     private RoleAppRepository roleAppRepository;
 
-    public DemoData(CategoryRepository categoryRepository, PostService postService, PostRepository postRepository,
-                    CommentRepository commentRepository, UserAppRepository userAppRepository, UserAppService userAppService, RoleAppRepository roleAppRepository) {
+    public DemoData(CategoryRepository categoryRepository, PostService postService, CommentRepository commentRepository,
+                    UserAppService userAppService, RoleAppRepository roleAppRepository) {
         this.categoryRepository = categoryRepository;
         this.postService = postService;
         this.commentRepository = commentRepository;
-        this.userAppRepository = userAppRepository;
         this.userAppService = userAppService;
         this.roleAppRepository = roleAppRepository;
     }
@@ -33,6 +32,10 @@ public class DemoData implements ApplicationRunner {
         Category category1 = new Category();
         category1.setName("Drôle");
         categoryRepository.save(category1);
+
+        Category category2 = new Category();
+        category2.setName("Triste");
+        categoryRepository.save(category2);
 
 
         Post post1 = new Post();
@@ -55,13 +58,16 @@ public class DemoData implements ApplicationRunner {
         roleAppRepository.save(new RoleApp("ADMIN"));
         roleAppRepository.save(new RoleApp("USER"));
 
-        userAppService.createUser( new UserApp("test@gmail.com", "password","admin",
-                "Carter","Hash"));
+        userAppService.createUser(new UserApp("test@gmail.com", "password", "admin",
+                "Carter", "Hash"));
 
-        userAppService.createUser( new UserApp("test2@gmail.com", "password","User",
-                "Carter","Guetchly"));
+        userAppService.createUser(new UserApp("test2@gmail.com", "password", "User",
+                "Carter", "Guetchly"));
 
-        userAppService.addRoleToUser("admin","ADMIN");
+        userAppService.addRoleToUser("admin", "ADMIN");
+
+        post2.setUserId(1L);
+        postService.savePost(post2);
 
     }
 }

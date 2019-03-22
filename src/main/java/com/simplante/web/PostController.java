@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-/**
- *
- *
- */
+
 @RestController
 @RequestMapping("/api/posts")
 @Slf4j
@@ -27,6 +24,13 @@ public class PostController {
     private final CategoryService categoryService;
     private final CategoryMapper categoryMapper;
 
+
+    /**
+     * @param postService
+     * @param postMapper
+     * @param categoryService
+     * @param categoryMapper
+     */
     public PostController(PostService postService, PostMapper postMapper,
                           CategoryService categoryService, CategoryMapper categoryMapper) {
         this.postService = postService;
@@ -46,27 +50,30 @@ public class PostController {
                 HttpStatus.OK);
     }*/
 
+
     /**
      * @return
      */
     @GetMapping
-    public ResponseEntity<?>listAllPostsOrderByDateDesc(){
+    public ResponseEntity<?> listAllPostsOrderByDateDesc() {
         log.debug("get list All Posts Order By Date Desc");
         return new ResponseEntity<>(postMapper.listPostsToListPostsDto(postService.listPostOrderByCreateDateDesc()),
                 HttpStatus.OK);
     }
 
+
     /**
+     * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseEntity<?>findById(@PathVariable Long id){
+    public ResponseEntity<?> findById(@PathVariable Long id) {
         try {
             if (postService.findById(id) == null)
-                return new ResponseEntity<Object>(new Exception("Post not exist"),HttpStatus.NOT_FOUND);
+                return new ResponseEntity<Object>(new Exception("Post not exist"), HttpStatus.NOT_FOUND);
 
             log.debug("Get post by ID");
-            return new ResponseEntity<>(postService.findById(id),HttpStatus.OK);
+            return new ResponseEntity<>(postService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
             log.error("Find by id : ", e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -74,6 +81,10 @@ public class PostController {
     }
 
 
+    /**
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}/categories")
     public ResponseEntity<?> getCategoryByPosts(@PathVariable Long id) {
         try {
@@ -90,22 +101,22 @@ public class PostController {
 
 
     /**
+     * @param postDto
      * @return
      */
     @PostMapping
-    public ResponseEntity<?>createPost(@RequestBody @Valid PostDto postDto) {
+    public ResponseEntity<?> createPost(@RequestBody @Valid PostDto postDto) {
 
         try {
-        if (postDto.getId() != null)
-            return new ResponseEntity<Object>(new Exception("Please remove the Id"),HttpStatus.UNAUTHORIZED);
+            if (postDto.getId() != null)
+                return new ResponseEntity<Object>(new Exception("Please remove the Id"), HttpStatus.UNAUTHORIZED);
 
-        if (postService.findByTitle(postDto.getTitle()) != null)
-            return new ResponseEntity<Object>(new Exception("Title already exist"),HttpStatus.CONFLICT);
+            if (postService.findByTitle(postDto.getTitle()) != null)
+                return new ResponseEntity<Object>(new Exception("Title already exist"), HttpStatus.CONFLICT);
 
             Post result = postService.savePost(postMapper.postDtoToPost(postDto));
             return new ResponseEntity<>(postMapper.postToPostDto(result), HttpStatus.CREATED);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -113,10 +124,12 @@ public class PostController {
 
 
     /**
+     * @param id
+     * @param postDto
      * @return
      */
     @PutMapping("/{id}")
-    public ResponseEntity<?>updatePost(@PathVariable Long id, @RequestBody @Valid  PostDto postDto) {
+    public ResponseEntity<?> updatePost(@PathVariable Long id, @RequestBody @Valid PostDto postDto) {
 
         try {
 
@@ -135,10 +148,11 @@ public class PostController {
 
 
     /**
+     * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<?>deletePost(@PathVariable Long id){
+    public ResponseEntity<?> deletePost(@PathVariable Long id) {
         try {
             if (postService.findById(id) == null)
                 throw new Exception("This post not exist");
@@ -151,6 +165,9 @@ public class PostController {
 
     }
 
+    /**
+     * @return
+     */
     @DeleteMapping
     public ResponseEntity<Object> deleteAllProjects() {
         try {

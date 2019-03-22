@@ -7,19 +7,24 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 @Entity
 public class Post {
 
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
     private Long id;
 
-    @Column(nullable = false, unique=true)
+    @Column(nullable = false, unique = true)
     @Length(min = 5, max = 100, message = "*Your title must have at least 5 characters")
     private String title;
 
     @Column(nullable = false)
+    @Lob
     private String body;
 
 
@@ -32,13 +37,15 @@ public class Post {
 
     private int vote;
 
+    //Liste de user qui ont like
+
     @Column(nullable = false)
     private Boolean status = false;
 
     private Long userId;
 
     @ManyToOne
-    @JoinColumn(name ="userId", insertable = false, updatable = false)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
     private UserApp user;
 
     private Long categoryId;
@@ -50,7 +57,7 @@ public class Post {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Comment> comments = new HashSet<>();
 
-    public Post(){
+    public Post() {
 
     }
 
@@ -58,6 +65,7 @@ public class Post {
         this.title = title;
         this.body = body;
     }
+
     public void addComment(Comment comment) {
         this.comments.add(comment);
         comment.setPostId(this.getId());
@@ -68,10 +76,8 @@ public class Post {
         comment.setPostId(null);
     }
 
-    public void removeAllComments()
-    {
-        for(Comment comment : this.comments)
-        {
+    public void removeAllComments() {
+        for (Comment comment : this.comments) {
             removeComment(comment);
         }
     }
@@ -130,6 +136,14 @@ public class Post {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public UserApp getUser() {
+        return user;
+    }
+
+    public void setUser(UserApp user) {
+        this.user = user;
     }
 
     public Long getUserId() {

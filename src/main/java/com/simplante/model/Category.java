@@ -6,6 +6,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 @Entity
 public class Category {
 
@@ -19,6 +23,13 @@ public class Category {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.MERGE)
     private Set<Post> posts = new HashSet<>();
+
+    public Category() {
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
 
     public void addPost(Post post) {
         this.posts.add(post);
@@ -34,19 +45,10 @@ public class Category {
         return new ArrayList<>(this.posts);
     }
 
-    public void removeAllPosts()
-    {
-        for(Post post : this.posts)
-        {
+    public void removeAllPosts() {
+        for (Post post : this.posts) {
             removePost(post);
         }
-    }
-
-
-    public Category() {}
-
-    public Category(String name) {
-        this.name = name;
     }
 
     public Long getId() {

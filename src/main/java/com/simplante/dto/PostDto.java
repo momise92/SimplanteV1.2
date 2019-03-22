@@ -16,7 +16,9 @@ public class PostDto {
 
     private int vote;
 
-    private Long userId;
+    /*private Long userId;*/
+
+    private String userUsername;
 
     private Long categoryId;
 
@@ -74,13 +76,13 @@ public class PostDto {
         this.vote = vote;
     }
 
-    public Long getUserId() {
+/*    public Long getUserId() {
         return userId;
     }
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
+    }*/
 
     public Long getCategoryId() {
         return categoryId;
@@ -88,5 +90,13 @@ public class PostDto {
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getUserUsername() {
+        return userUsername;
+    }
+
+    public void setUserUsername(String userUsername) {
+        this.userUsername = userUsername;
     }
 }

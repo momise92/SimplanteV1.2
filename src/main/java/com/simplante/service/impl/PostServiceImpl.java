@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService {
     }
 
 
-    @Transactional
+    /*@Transactional*/
     @Override
     public Post savePost(Post post) throws Exception {
         try {

@@ -11,6 +11,11 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 @Entity
 public class UserApp {
 

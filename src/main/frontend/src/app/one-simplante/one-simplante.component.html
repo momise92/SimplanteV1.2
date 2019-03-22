@@ -1,16 +1,47 @@
-<main class="page projets-page">
-  <section class="portfolio-block project-no-images">
-    <div class="container breakWord">
-      <div class="row">
-        <div class="col-md-12 col-lg-12" *ngIf="simplante$ | async as simplante">
-          <div class="project-card-no-image">
-            <div class="tags">{{ simplante.createDate | date:'d MMM y HH:mm' }}</div>
-            <h3>{{simplante.title}}</h3>
-            <h4>{{simplante.body}}</h4>
-          </div>
+<main>
+    <section>
+        <div *ngIf="simplante$ | async as simplante" class="card gedf-card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="mr-2">
+                            <img alt="" class="rounded-circle" src="https://picsum.photos/50/50" width="45">
+                        </div>
+                        <div class="ml-2">
+                            <div class="h5 m-0">{{simplante.userUsername}}</div>
+                            <div class="h7 text-muted">Name Lastname</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown">
+                            <button aria-expanded="false" aria-haspopup="true" class="btn btn-link dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    id="gedf-drop1" type="button">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                            <div aria-labelledby="gedf-drop1" class="dropdown-menu dropdown-menu-right">
+                                <div class="h6 dropdown-header">Configuration</div>
+                                <a class="dropdown-item" href="#">Save</a>
+                                <a class="dropdown-item" href="#">Hide</a>
+                                <a class="dropdown-item" href="#">Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="text-muted small mb-2 float-right"><i
+                        class="far fa-clock mr-1"></i>{{ simplante.createDate | date:'d MMM y HH:mm' }}</div>
+                <h5 class="card-title">{{ simplante.title}}</h5>
+                <p class="card-text text-muted">{{ simplante.body}}</p>
+            </div>
+            <div class="card-footer">
+                <a class="card-link" href="#"><i class="fab fa-gratipay"></i> Like</a>
+                <a class="card-link" href="#"><i class="fa fa-comment"></i> Comment</a>
+                <a class="card-link" href="#"><i class="fa fa-mail-forward"></i> Share</a>
+            </div>
         </div>
-      </div>
-      <a class="btn btn-outline-primary btn-sm" role="button" (click)="goBack()">Retour</a>
-    </div>
-  </section>
+        <a (click)="goBack()" class="btn btn-primary text-white btn-sm" role="button"
+           style="cursor: pointer;">Retour</a>
+    </section>
 </main>
