@@ -1,5 +1,12 @@
 <app-nav></app-nav>
 <div class="container-fluid gedf-wrapper">
-    <app-new-feed></app-new-feed>
+    <div class="row">
+        <div class="col-md-4">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-8 gedf-main">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
 <app-footer></app-footer>

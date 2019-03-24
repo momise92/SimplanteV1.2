@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AppComponent } from './../app.component';
 import {Component, OnInit} from '@angular/core';
 import { from } from 'rxjs';
@@ -10,10 +11,13 @@ import { AuthenticationService } from '../service/authentication.service';
 })
 export class NavComponent implements OnInit {
     constructor(
-        private authService: AuthenticationService
+        private authService: AuthenticationService,
+        private router: Router
     ) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.authService.loadToken();
+    }
 
     isAdmin() {
         return this.authService.isAdmin();
@@ -24,5 +28,10 @@ export class NavComponent implements OnInit {
 
       isAuthenticated() {
           return this.authService.isAuthenticated();
+      }
+
+      logout() {
+          this.authService.logout();
+          this.router.navigateByUrl('/');
       }
 }

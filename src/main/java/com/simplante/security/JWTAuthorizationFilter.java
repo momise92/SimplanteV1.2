@@ -24,14 +24,14 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String header = request.getHeader(SecurityConstants.HEADER_STRING);
+        String token = request.getHeader(SecurityConstants.HEADER_STRING);
 
-        if (header == null || !header.startsWith(SecurityConstants.TOKEN_PREFIX)) {
+        if (token == null || !token.startsWith(SecurityConstants.TOKEN_PREFIX)) {
             filterChain.doFilter(request, response);
             return;
         }
         JWTVerifier verifier = JWT.require((Algorithm.HMAC512(SecurityConstants.SECRET))).build();
-        DecodedJWT decodedJWT = verifier.verify(header.substring(SecurityConstants.TOKEN_PREFIX.length()));
+        DecodedJWT decodedJWT = verifier.verify(token.substring(SecurityConstants.TOKEN_PREFIX.length()));
         List<String> roles = decodedJWT.getClaims().get("authorities").asList(String.class);
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         for (String role : roles) {

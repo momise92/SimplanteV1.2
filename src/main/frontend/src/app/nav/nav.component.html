@@ -27,13 +27,13 @@
                             width="24">Name<span class="sr-only"></span></a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Gestion des Simplantes</a>
+                            <a *ngIf="isUser()" class="dropdown-item" href="#">Gestion des Simplantes</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" href="#">Gestion Utilisateurs</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" href="#">Gestion des Commentaires</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" href="#">Gestion des Catégories</a>
                             <a class="dropdown-item" href="#">Parametre</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Déconnexion</a>
+                            <a class="dropdown-item" href='' (click)="logout()">Déconnexion</a>
                         </div>
                     
                         <!--Lien-->
@@ -45,7 +45,7 @@
                         <a class="nav-link" href="#"><i class="ion-plus-circled"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink='/login'>Connexion</a>
+                        <a *ngIf="!isAuthenticated()"class="nav-link" routerLink='/login'>Connexion</a>
                     </li>
                 </ul>
             </div>

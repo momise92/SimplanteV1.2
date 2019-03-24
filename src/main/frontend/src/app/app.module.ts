@@ -13,9 +13,12 @@ import {AddSimplanteComponent} from './add-simplante/add-simplante.component';
 import {OneSimplanteComponent} from './one-simplante/one-simplante.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {CreatePostComponent} from './create-post/create-post.component';
-import {NewFeedComponent} from './new-feed/new-feed.component';
 import {SimplantesByCategorieComponent} from './simplantes-by-categorie/simplantes-by-categorie.component';
 import { LoginComponent } from './login/login.component';
+import { AdminCategoriesComponent } from './admin-categories/admin-categories.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminSimplantesComponent } from './admin-simplantes/admin-simplantes.component';
+import { AdminCommentsComponent } from './admin-comments/admin-comments.component';
 
 @NgModule({
     declarations: [
@@ -28,9 +31,12 @@ import { LoginComponent } from './login/login.component';
         OneSimplanteComponent,
         SidebarComponent,
         CreatePostComponent,
-        NewFeedComponent,
         SimplantesByCategorieComponent,
-        LoginComponent
+        LoginComponent,
+        AdminCategoriesComponent,
+        AdminUsersComponent,
+        AdminSimplantesComponent,
+        AdminCommentsComponent
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
     providers: [],

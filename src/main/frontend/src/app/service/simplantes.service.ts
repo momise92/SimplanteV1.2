@@ -4,17 +4,16 @@ import {map, tap, catchError} from 'rxjs/operators';
 import {Simplante} from '../model/model.simplante';
 import {Identifiers} from '@angular/compiler';
 import {Observable, of} from 'rxjs';
+import { Config } from '../config';
 
 @Injectable({
     providedIn: 'root',
 })
 export class SimplantesService {
-    // URL de l'api
-    // simplanteUrl = 'http://localhost:8080/simplante';
-    simplanteUrl = 'http://localhost:8080/api/posts';
-    categoriesUrl = 'http://localhost:8080/api/categories';
+    API_URL: string;
 
     constructor(private http: HttpClient) {
+        this.API_URL = Config.API_URL;
     }
 
     getSimplante(id: number | string) {
@@ -27,14 +26,14 @@ export class SimplantesService {
     }
 
     getAllSimplantes(): Observable<Simplante[]> {
-        return this.http.get<Simplante[]>(this.simplanteUrl).pipe(resp => resp);
+        return this.http.get<Simplante[]>(this.API_URL + '/posts').pipe(resp => resp);
     }
 
     saveSimplante(simplante: Simplante) {
-        return this.http.post(this.simplanteUrl, simplante).pipe(resp => resp);
+        return this.http.post<Simplante[]>(this.API_URL + '/posts', simplante).pipe(resp => resp);
     }
 
     getSimplanteByCategories(id: number): Observable<Simplante[]> {
-        return this.http.get<Simplante[]>(`${this.categoriesUrl}/${id}/posts`).pipe(resp => resp);
+        return this.http.get<Simplante[]>(`${this.API_URL}/categories/${id}/posts`).pipe(resp => resp);
     }
 }

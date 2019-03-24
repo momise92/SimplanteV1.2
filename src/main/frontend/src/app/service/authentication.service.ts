@@ -1,27 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Config } from '../config';
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthenticationService {
-host2 = 'http://localhost:8080/login';
+LOGIN_URL: string;
 jwt: string;
 username: string;
 roles: Array<string>;
+
     constructor(private http: HttpClient) {
+        this.LOGIN_URL = Config.LOGIN_URL;
     }
 
-    login(data) {
-        return this.http.post(this.host2, data, {observe: 'response'});
+    login(data: string) {
+        return this.http.post(this.LOGIN_URL, data, {observe: 'response'});
     }
 
-    saveToken(jwt: string): any {
+    saveToken(jwt: string) {
         localStorage.setItem('token', jwt);
         this.jwt = jwt;
         this.parseJWT();
+        console.log(this.roles);
       }
 
 
@@ -41,6 +45,18 @@ roles: Array<string>;
 
     isAuthenticated() {
         return this.roles;
+    }
+
+    loadToken() {
+        this.jwt = localStorage.getItem('token');
+        this.parseJWT();
+    }
+
+    logout() {
+        localStorage.removeItem('token');
+        this.jwt = undefined;
+        this.username = undefined;
+        this.roles = undefined;
     }
 
 }
