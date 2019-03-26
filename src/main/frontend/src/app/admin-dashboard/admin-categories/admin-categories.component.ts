@@ -1,7 +1,6 @@
-import { CategoryService } from './../service/category.service';
+import { CategoryService } from '../../service/category.service';
 import { Component, OnInit } from '@angular/core';
-import { CssSelector } from '@angular/compiler';
-import { Category } from '../model/model.category';
+import { Category } from '../../model/model.category';
 
 @Component({
   selector: 'app-admin-categories',

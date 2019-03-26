@@ -15,10 +15,10 @@ import {SidebarComponent} from './sidebar/sidebar.component';
 import {CreatePostComponent} from './create-post/create-post.component';
 import {SimplantesByCategorieComponent} from './simplantes-by-categorie/simplantes-by-categorie.component';
 import { LoginComponent } from './login/login.component';
-import { AdminCategoriesComponent } from './admin-categories/admin-categories.component';
-import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { AdminSimplantesComponent } from './admin-simplantes/admin-simplantes.component';
-import { AdminCommentsComponent } from './admin-comments/admin-comments.component';
+import { AdminCategoriesComponent } from './admin-dashboard/admin-categories/admin-categories.component';
+import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
+import { AdminSimplantesComponent } from './admin-dashboard/admin-simplantes/admin-simplantes.component';
+import { AdminCommentsComponent } from './admin-dashboard/admin-comments/admin-comments.component';
 
 @NgModule({
     declarations: [

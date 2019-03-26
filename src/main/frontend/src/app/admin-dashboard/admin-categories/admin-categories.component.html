@@ -1,8 +1,8 @@
 <div class="panel panel-default panel-table">
-  <div class="card-header">
+  <div class="card-header bg-gradient">
     <div class="row">
       <div class="col col-xs-6">
-        <h4 class="panel-title">Gestion des catégories</h4>
+        <h4 class="panel-title text-white">Gestion des catégories</h4>
       </div>
       <div class="col col-xs-6 text-right">
         <button type="button" class="btn btn-sm btn-create" (click)="newCategory()"><i class="fas fa-plus"></i></button>
@@ -12,9 +12,8 @@
 
   <!--Formulaire d'ajout-->
   <div class="panel-body">
-    <br>
     <div *ngIf="mode =='new-cat'">
-        <form class="form-inline" #formCategory="ngForm" (ngSubmit)="saveCategory(formCategory.value)">
+        <form class="form-inline mt-4" #formCategory="ngForm" (ngSubmit)="saveCategory(formCategory.value)">
           <div class="form-group col-xs-6">
             <label class="control-label mr-2">Name:</label>
             <input type="text" class="form-control" ngModel name="name" required>
@@ -30,9 +29,8 @@
 
     <!--Formulaire d'edit-->
     <div class="panel-body">
-        <br>
         <div *ngIf="mode =='edit-cat'">
-            <form class="form-inline" #formCategory="ngForm" (ngSubmit)="editCategory(formCategory.value)">
+            <form class="form-inline mt-4" #formCategory="ngForm" (ngSubmit)="editCategory(formCategory.value)">
               <div class="form-group col-xs-6">
                 <label class="control-label mr-2">Name:</label>
                 <input type="text" class="form-control" name="name" ngModel [(ngModel)]="currentCategory.name" required>
@@ -71,6 +69,11 @@
         </tbody>
       </table>
     </div>
+    <div class="card-footer">
+        <div class="row">
+          <div class="col col-xs-4">Page 1</div>
+        </div>
+      </div>
   </div>
 
 

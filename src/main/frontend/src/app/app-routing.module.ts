@@ -5,7 +5,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {SimplantesComponent} from './simplantes/simplantes.component';
 import {AddSimplanteComponent} from './add-simplante/add-simplante.component';
-import { AdminCategoriesComponent } from './admin-categories/admin-categories.component';
+import { AdminCategoriesComponent } from './admin-dashboard/admin-categories/admin-categories.component';
 
 const routes: Routes = [
     {path: 'simplante', component: SimplantesComponent},
