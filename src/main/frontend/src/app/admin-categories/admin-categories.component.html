@@ -1,3 +1,128 @@
-<p>
-  admin-categories works!
-</p>
+<div class="panel panel-default panel-table">
+  <div class="card-header">
+    <div class="row">
+      <div class="col col-xs-6">
+        <h4 class="panel-title">Gestion des catégories</h4>
+      </div>
+      <div class="col col-xs-6 text-right">
+        <button type="button" class="btn btn-sm btn-create" (click)="newCategory()"><i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!--Formulaire d'ajout-->
+  <div class="panel-body">
+    <br>
+    <div *ngIf="mode =='new-cat'">
+        <form class="form-inline" #formCategory="ngForm" (ngSubmit)="saveCategory(formCategory.value)">
+          <div class="form-group col-xs-6">
+            <label class="control-label mr-2">Name:</label>
+            <input type="text" class="form-control" ngModel name="name" required>
+          </div>
+          <div class="col-sm-3">
+              <button class="btn btn-primary mr-2" type="submit">Ajouter</button>
+              <button class="btn btn-secondary" (click)="mode='list'" >Annuler</button>
+            </div>
+        </form>
+      
+    </div>
+  </div>
+
+    <!--Formulaire d'edit-->
+    <div class="panel-body">
+        <br>
+        <div *ngIf="mode =='edit-cat'">
+            <form class="form-inline" #formCategory="ngForm" (ngSubmit)="editCategory(formCategory.value)">
+              <div class="form-group col-xs-6">
+                <label class="control-label mr-2">Name:</label>
+                <input type="text" class="form-control" name="name" ngModel [(ngModel)]="currentCategory.name" required>
+              </div>
+              <div class="col-sm-3">
+                  <button class="btn btn-primary mr-2" type="submit">Ajouter</button>
+                  <button class="btn btn-secondary" (click)="mode='list'" >Annuler</button>
+                </div>
+            </form>
+          
+        </div>
+      </div>
+
+    <div class="panel-body" *ngIf="mode =='list'">
+      <table class="table table-striped table-bordered table-list" *ngIf="categories">
+        <thead>
+          <tr>
+            <th><em class="fa fa-cog"></em></th>
+            <th>Nom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td align="center">
+              <button class="btn" (click)="GetCategorybyId(category.id)">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn" (click)="deleteCategory(category.id)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+            <td>
+              {{category.name}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+  <!--<div class="panel panel-default panel-table">
+  <div class="card-header">
+    <div class="row">
+      <div class="col col-xs-6">
+        <h4 class="panel-title">Gestion des catégories</h4>
+      </div>
+      <div class="col col-xs-6 text-right">
+        <button class="btn float-right" (click)="newCategory()"><i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div *ngIf="mode =='new-cat'" class="col-md-6">
+      <form #formCategory="ngForm" (ngSubmit)="saveCategory(formCategory.value)">
+        <div class="form-group">
+          <label class="control-label">Name</label>
+          <input class="form-control" type="text" ngModel name="name" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Ajouter</button>
+      </form>
+    </div>
+    <br>
+    <div class="panel-body" *ngIf="mode =='list'">
+      <table class="table table-striped table-bordered table-list" *ngIf="categories">
+        <thead>
+          <tr>
+            <th><em class="fa fa-cog"></em></th>
+            <th>Nom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td align="center">
+              <button class="btn btn-light" (click)="editCategory(category.id)">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-danger" (click)="deleteCategory(category.id)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+            <td>
+                {{category.name}}
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->

@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import org.omg.CORBA.SystemException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -35,7 +36,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
         List<String> roles = decodedJWT.getClaims().get("authorities").asList(String.class);
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         for (String role : roles) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + role));
+            authorities.add(new SimpleGrantedAuthority(role));
         }
         UsernamePasswordAuthenticationToken user = new UsernamePasswordAuthenticationToken(decodedJWT.getSubject(), null, authorities);
         SecurityContextHolder.getContext().setAuthentication(user);

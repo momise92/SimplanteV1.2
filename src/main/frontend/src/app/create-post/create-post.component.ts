@@ -25,13 +25,8 @@ export class CreatePostComponent implements OnInit {
         this.simplantesService.saveSimplante(this.simplante).subscribe(
             data => {
                 this.router.navigate(['/simplante']);
-                console.log(data);
-                location.reload();
-            },
-            error => {
-                console.log(error);
-            }
-        );
+                location.reload(); },
+            error => {console.log(error); });
     }
 
     getCategories() {

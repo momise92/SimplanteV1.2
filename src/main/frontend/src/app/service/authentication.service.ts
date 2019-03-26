@@ -25,22 +25,24 @@ roles: Array<string>;
         localStorage.setItem('token', jwt);
         this.jwt = jwt;
         this.parseJWT();
-        console.log(this.roles);
+        console.log('JWt: ', this.jwt);
+        console.log('Roles: ', this.roles);
+        console.log('Username: ', this.username);
       }
 
 
     parseJWT() {
         const jwtHelper = new JwtHelperService();
         const objJWT = jwtHelper.decodeToken(this.jwt);
-        this.username = objJWT.obj;
+        this.username = objJWT.sub;
         this.roles = objJWT.authorities;
     }
 
     isAdmin() {
-        return this.roles.indexOf('ROLE_ADMIN') >= 0;
+        return this.roles.indexOf('ADMIN') >= 0;
     }
     isUser() {
-        return this.roles.indexOf('ROLE_USER') >= 0;
+        return this.roles.indexOf('USER') >= 0;
     }
 
     isAuthenticated() {

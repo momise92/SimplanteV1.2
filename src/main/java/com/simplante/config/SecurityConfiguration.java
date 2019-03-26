@@ -72,6 +72,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/login/**", "/api/users/**", "/api/posts").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/posts", "/api/categories/**").permitAll()
+                .antMatchers("/api/categories/**").hasAuthority("ADMIN")
                 .antMatchers("/api/**").authenticated().and()
                 .addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
                 .addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)

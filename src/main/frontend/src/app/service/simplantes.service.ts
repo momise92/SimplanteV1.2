@@ -10,10 +10,9 @@ import { Config } from '../config';
     providedIn: 'root',
 })
 export class SimplantesService {
-    API_URL: string;
+    API_URL = Config.API_URL;
 
     constructor(private http: HttpClient) {
-        this.API_URL = Config.API_URL;
     }
 
     getSimplante(id: number | string) {
@@ -26,14 +25,14 @@ export class SimplantesService {
     }
 
     getAllSimplantes(): Observable<Simplante[]> {
-        return this.http.get<Simplante[]>(this.API_URL + '/posts').pipe(resp => resp);
+        return this.http.get<Simplante[]>(this.API_URL + '/posts');
     }
 
-    saveSimplante(simplante: Simplante) {
-        return this.http.post<Simplante[]>(this.API_URL + '/posts', simplante).pipe(resp => resp);
+    saveSimplante(simplante: Simplante): Observable<Simplante[]> {
+        return this.http.post<Simplante[]>(this.API_URL + '/posts', simplante);
     }
 
     getSimplanteByCategories(id: number): Observable<Simplante[]> {
-        return this.http.get<Simplante[]>(`${this.API_URL}/categories/${id}/posts`).pipe(resp => resp);
+        return this.http.get<Simplante[]>(`${this.API_URL}/categories/${id}/posts`);
     }
 }

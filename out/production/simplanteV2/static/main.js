@@ -94,6 +94,230 @@ var AddSimplanteComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/admin-categories/admin-categories.component.css":
+/*!*****************************************************************!*\
+  !*** ./src/app/admin-categories/admin-categories.component.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluLWNhdGVnb3JpZXMvYWRtaW4tY2F0ZWdvcmllcy5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/admin-categories/admin-categories.component.html":
+/*!******************************************************************!*\
+  !*** ./src/app/admin-categories/admin-categories.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  admin-categories works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin-categories/admin-categories.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/admin-categories/admin-categories.component.ts ***!
+  \****************************************************************/
+/*! exports provided: AdminCategoriesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCategoriesComponent", function() { return AdminCategoriesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AdminCategoriesComponent = /** @class */ (function () {
+    function AdminCategoriesComponent() {
+    }
+    AdminCategoriesComponent.prototype.ngOnInit = function () {
+    };
+    AdminCategoriesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-admin-categories',
+            template: __webpack_require__(/*! ./admin-categories.component.html */ "./src/app/admin-categories/admin-categories.component.html"),
+            styles: [__webpack_require__(/*! ./admin-categories.component.css */ "./src/app/admin-categories/admin-categories.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AdminCategoriesComponent);
+    return AdminCategoriesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin-comments/admin-comments.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/admin-comments/admin-comments.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluLWNvbW1lbnRzL2FkbWluLWNvbW1lbnRzLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/admin-comments/admin-comments.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/admin-comments/admin-comments.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  admin-comments works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin-comments/admin-comments.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/admin-comments/admin-comments.component.ts ***!
+  \************************************************************/
+/*! exports provided: AdminCommentsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCommentsComponent", function() { return AdminCommentsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AdminCommentsComponent = /** @class */ (function () {
+    function AdminCommentsComponent() {
+    }
+    AdminCommentsComponent.prototype.ngOnInit = function () {
+    };
+    AdminCommentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-admin-comments',
+            template: __webpack_require__(/*! ./admin-comments.component.html */ "./src/app/admin-comments/admin-comments.component.html"),
+            styles: [__webpack_require__(/*! ./admin-comments.component.css */ "./src/app/admin-comments/admin-comments.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AdminCommentsComponent);
+    return AdminCommentsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin-simplantes/admin-simplantes.component.css":
+/*!*****************************************************************!*\
+  !*** ./src/app/admin-simplantes/admin-simplantes.component.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluLXNpbXBsYW50ZXMvYWRtaW4tc2ltcGxhbnRlcy5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/admin-simplantes/admin-simplantes.component.html":
+/*!******************************************************************!*\
+  !*** ./src/app/admin-simplantes/admin-simplantes.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  admin-simplantes works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin-simplantes/admin-simplantes.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/admin-simplantes/admin-simplantes.component.ts ***!
+  \****************************************************************/
+/*! exports provided: AdminSimplantesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminSimplantesComponent", function() { return AdminSimplantesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AdminSimplantesComponent = /** @class */ (function () {
+    function AdminSimplantesComponent() {
+    }
+    AdminSimplantesComponent.prototype.ngOnInit = function () {
+    };
+    AdminSimplantesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-admin-simplantes',
+            template: __webpack_require__(/*! ./admin-simplantes.component.html */ "./src/app/admin-simplantes/admin-simplantes.component.html"),
+            styles: [__webpack_require__(/*! ./admin-simplantes.component.css */ "./src/app/admin-simplantes/admin-simplantes.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AdminSimplantesComponent);
+    return AdminSimplantesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin-users/admin-users.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/admin-users/admin-users.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluLXVzZXJzL2FkbWluLXVzZXJzLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/admin-users/admin-users.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/admin-users/admin-users.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  admin-users works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin-users/admin-users.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/admin-users/admin-users.component.ts ***!
+  \******************************************************/
+/*! exports provided: AdminUsersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminUsersComponent", function() { return AdminUsersComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AdminUsersComponent = /** @class */ (function () {
+    function AdminUsersComponent() {
+    }
+    AdminUsersComponent.prototype.ngOnInit = function () {
+    };
+    AdminUsersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-admin-users',
+            template: __webpack_require__(/*! ./admin-users.component.html */ "./src/app/admin-users/admin-users.component.html"),
+            styles: [__webpack_require__(/*! ./admin-users.component.css */ "./src/app/admin-users/admin-users.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AdminUsersComponent);
+    return AdminUsersComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -162,7 +386,7 @@ module.exports = "\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJz
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav></app-nav>\n<div class=\"container-fluid gedf-wrapper\">\n    <app-new-feed></app-new-feed>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-nav></app-nav>\n<div class=\"container-fluid gedf-wrapper\">\n    <div class=\"row\">\n        <div class=\"col-md-4\">\n            <app-sidebar></app-sidebar>\n        </div>\n        <div class=\"col-md-8 gedf-main\">\n            <router-outlet></router-outlet>\n        </div>\n    </div>\n</div>\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -190,7 +414,8 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());
@@ -224,9 +449,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _one_simplante_one_simplante_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./one-simplante/one-simplante.component */ "./src/app/one-simplante/one-simplante.component.ts");
 /* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sidebar/sidebar.component */ "./src/app/sidebar/sidebar.component.ts");
 /* harmony import */ var _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./create-post/create-post.component */ "./src/app/create-post/create-post.component.ts");
-/* harmony import */ var _new_feed_new_feed_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./new-feed/new-feed.component */ "./src/app/new-feed/new-feed.component.ts");
-/* harmony import */ var _simplantes_by_categorie_simplantes_by_categorie_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./simplantes-by-categorie/simplantes-by-categorie.component */ "./src/app/simplantes-by-categorie/simplantes-by-categorie.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _simplantes_by_categorie_simplantes_by_categorie_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./simplantes-by-categorie/simplantes-by-categorie.component */ "./src/app/simplantes-by-categorie/simplantes-by-categorie.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _admin_categories_admin_categories_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin-categories/admin-categories.component */ "./src/app/admin-categories/admin-categories.component.ts");
+/* harmony import */ var _admin_users_admin_users_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin-users/admin-users.component */ "./src/app/admin-users/admin-users.component.ts");
+/* harmony import */ var _admin_simplantes_admin_simplantes_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin-simplantes/admin-simplantes.component */ "./src/app/admin-simplantes/admin-simplantes.component.ts");
+/* harmony import */ var _admin_comments_admin_comments_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin-comments/admin-comments.component */ "./src/app/admin-comments/admin-comments.component.ts");
+
+
+
 
 
 
@@ -260,9 +491,12 @@ var AppModule = /** @class */ (function () {
                 _one_simplante_one_simplante_component__WEBPACK_IMPORTED_MODULE_12__["OneSimplanteComponent"],
                 _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_13__["SidebarComponent"],
                 _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_14__["CreatePostComponent"],
-                _new_feed_new_feed_component__WEBPACK_IMPORTED_MODULE_15__["NewFeedComponent"],
-                _simplantes_by_categorie_simplantes_by_categorie_component__WEBPACK_IMPORTED_MODULE_16__["SimplantesByCategorieComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"]
+                _simplantes_by_categorie_simplantes_by_categorie_component__WEBPACK_IMPORTED_MODULE_15__["SimplantesByCategorieComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_16__["LoginComponent"],
+                _admin_categories_admin_categories_component__WEBPACK_IMPORTED_MODULE_17__["AdminCategoriesComponent"],
+                _admin_users_admin_users_component__WEBPACK_IMPORTED_MODULE_18__["AdminUsersComponent"],
+                _admin_simplantes_admin_simplantes_component__WEBPACK_IMPORTED_MODULE_19__["AdminSimplantesComponent"],
+                _admin_comments_admin_comments_component__WEBPACK_IMPORTED_MODULE_20__["AdminCommentsComponent"]
             ],
             imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]],
             providers: [],
@@ -270,6 +504,28 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/config.ts":
+/*!***************************!*\
+  !*** ./src/app/config.ts ***!
+  \***************************/
+/*! exports provided: Config */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
+var Config = /** @class */ (function () {
+    function Config() {
+    }
+    Config.API_URL = 'http://localhost:8080/api';
+    Config.LOGIN_URL = 'http://localhost:8080/login';
+    return Config;
 }());
 
 
@@ -530,20 +786,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _service_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/authentication.service */ "./src/app/service/authentication.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(authService) {
+    function LoginComponent(authService, router) {
         this.authService = authService;
+        this.router = router;
     }
-    LoginComponent.prototype.ngOnInit = function () {
-    };
+    LoginComponent.prototype.ngOnInit = function () { };
     LoginComponent.prototype.onLogin = function (data) {
-        this.authService.login(data).subscribe(function (resp) {
-            console.log(resp.headers.get['Authorization']);
+        var _this = this;
+        this.authService.login(data)
+            .subscribe(function (resp) {
+            var jwt = resp.headers.get('Authorization');
+            _this.authService.saveToken(jwt);
+            _this.router.navigateByUrl('/');
         }, function (err) {
+            console.log(err);
         });
+    };
+    LoginComponent.prototype.isAdmin = function () {
+        return this.authService.isAdmin();
+    };
+    LoginComponent.prototype.isUser = function () {
+        return this.authService.isUser();
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -551,7 +820,8 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -587,7 +857,7 @@ var Simplante = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* .form-control {\n    width: 200px;\n} */\n.simp-nav {\n    height: 50px !important;\n    color: #fff;\n}\n.simp-nav a {\n    color: #fff;\n}\n.top-form input[type=\"text\"] {\n    width: 439px;\n    height: 28px;\n    border: none;\n    outline: none;\n    border-radius: 0;\n}\n.top-form input[type=\"text\"]:focus {\n    border-color: transparent;\n}\n.top-form button {\n    width: 46px;\n    height: 28px;\n    border: none;\n    outline: 0;\n    border-radius: 0;\n    padding: 0;\n    margin-left: -46px;\n    background-color: transparent;\n}\n.top-form button i {\n    color: #27282c;\n}\n.wrapper {\n    width: 90%;\n    margin: 0 auto;\n}\n@media (max-width: 994px) {\n    .top-form input[type=\"text\"] {\n        width: auto;\n    }\n\n    /* .simp-nav,\n    .wrapper {\n        min-width: 994px;\n    } */\n}\n@media (max-width: 767px) {\n    .simp-nav {\n        height: auto !important;\n    }\n\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L25hdi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBQ0g7SUFDSSx1QkFBdUI7SUFDdkIsV0FBVztBQUNmO0FBRUE7SUFDSSxXQUFXO0FBQ2Y7QUFFQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osWUFBWTtJQUNaLGFBQWE7SUFDYixnQkFBZ0I7QUFDcEI7QUFFQTtJQUNJLHlCQUF5QjtBQUM3QjtBQUVBO0lBQ0ksV0FBVztJQUNYLFlBQVk7SUFDWixZQUFZO0lBQ1osVUFBVTtJQUNWLGdCQUFnQjtJQUNoQixVQUFVO0lBQ1Ysa0JBQWtCO0lBQ2xCLDZCQUE2QjtBQUNqQztBQUVBO0lBQ0ksY0FBYztBQUNsQjtBQUVBO0lBQ0ksVUFBVTtJQUNWLGNBQWM7QUFDbEI7QUFFQTtJQUNJO1FBQ0ksV0FBVztJQUNmOztJQUVBOzs7T0FHRztBQUNQO0FBRUE7SUFDSTtRQUNJLHVCQUF1QjtJQUMzQjs7QUFFSiIsImZpbGUiOiJzcmMvYXBwL25hdi9uYXYuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIC5mb3JtLWNvbnRyb2wge1xuICAgIHdpZHRoOiAyMDBweDtcbn0gKi9cbi5zaW1wLW5hdiB7XG4gICAgaGVpZ2h0OiA1MHB4ICFpbXBvcnRhbnQ7XG4gICAgY29sb3I6ICNmZmY7XG59XG5cbi5zaW1wLW5hdiBhIHtcbiAgICBjb2xvcjogI2ZmZjtcbn1cblxuLnRvcC1mb3JtIGlucHV0W3R5cGU9XCJ0ZXh0XCJdIHtcbiAgICB3aWR0aDogNDM5cHg7XG4gICAgaGVpZ2h0OiAyOHB4O1xuICAgIGJvcmRlcjogbm9uZTtcbiAgICBvdXRsaW5lOiBub25lO1xuICAgIGJvcmRlci1yYWRpdXM6IDA7XG59XG5cbi50b3AtZm9ybSBpbnB1dFt0eXBlPVwidGV4dFwiXTpmb2N1cyB7XG4gICAgYm9yZGVyLWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cblxuLnRvcC1mb3JtIGJ1dHRvbiB7XG4gICAgd2lkdGg6IDQ2cHg7XG4gICAgaGVpZ2h0OiAyOHB4O1xuICAgIGJvcmRlcjogbm9uZTtcbiAgICBvdXRsaW5lOiAwO1xuICAgIGJvcmRlci1yYWRpdXM6IDA7XG4gICAgcGFkZGluZzogMDtcbiAgICBtYXJnaW4tbGVmdDogLTQ2cHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG59XG5cbi50b3AtZm9ybSBidXR0b24gaSB7XG4gICAgY29sb3I6ICMyNzI4MmM7XG59XG5cbi53cmFwcGVyIHtcbiAgICB3aWR0aDogOTAlO1xuICAgIG1hcmdpbjogMCBhdXRvO1xufVxuXG5AbWVkaWEgKG1heC13aWR0aDogOTk0cHgpIHtcbiAgICAudG9wLWZvcm0gaW5wdXRbdHlwZT1cInRleHRcIl0ge1xuICAgICAgICB3aWR0aDogYXV0bztcbiAgICB9XG5cbiAgICAvKiAuc2ltcC1uYXYsXG4gICAgLndyYXBwZXIge1xuICAgICAgICBtaW4td2lkdGg6IDk5NHB4O1xuICAgIH0gKi9cbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gICAgLnNpbXAtbmF2IHtcbiAgICAgICAgaGVpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XG4gICAgfVxuXG59Il19 */"
+module.exports = "/* .form-control {\n    width: 200px;\n} */\n.simp-nav {\n    height: 50px !important;\n    color: #fff;\n}\n.simp-nav a {\n    color: #fff;\n}\n.top-form input[type=\"text\"] {\n    width: 439px;\n    height: 28px;\n    border: none;\n    outline: none;\n    border-radius: 0;\n}\n.top-form input[type=\"text\"]:focus {\n    border-color: transparent;\n}\n.top-form button {\n    width: 46px;\n    height: 28px;\n    border: none;\n    outline: 0;\n    border-radius: 0;\n    padding: 0;\n    margin-left: -46px;\n    background-color: transparent;\n}\n.top-form button i {\n    color: #27282c;\n}\n.wrapper {\n    width: 90%;\n    margin: 0 auto;\n}\n.dropdown-menu {\n    background-color: #00adff;\n}\n.dropdown:hover>.dropdown-menu {\n    display: block;\n  }\n.dropdown-menu > a:hover {\n    background-color: #00b7ff;\n    background-image: none;\n}\n@media (max-width: 994px) {\n    .top-form input[type=\"text\"] {\n        width: auto;\n    }\n\n    /* .simp-nav,\n    .wrapper {\n        min-width: 994px;\n    } */\n}\n@media (max-width: 767px) {\n    .simp-nav {\n        height: auto !important;\n    }\n\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L25hdi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBQ0g7SUFDSSx1QkFBdUI7SUFDdkIsV0FBVztBQUNmO0FBRUE7SUFDSSxXQUFXO0FBQ2Y7QUFFQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osWUFBWTtJQUNaLGFBQWE7SUFDYixnQkFBZ0I7QUFDcEI7QUFFQTtJQUNJLHlCQUF5QjtBQUM3QjtBQUVBO0lBQ0ksV0FBVztJQUNYLFlBQVk7SUFDWixZQUFZO0lBQ1osVUFBVTtJQUNWLGdCQUFnQjtJQUNoQixVQUFVO0lBQ1Ysa0JBQWtCO0lBQ2xCLDZCQUE2QjtBQUNqQztBQUVBO0lBQ0ksY0FBYztBQUNsQjtBQUVBO0lBQ0ksVUFBVTtJQUNWLGNBQWM7QUFDbEI7QUFDQTtJQUNJLHlCQUF5QjtBQUM3QjtBQUNBO0lBQ0ksY0FBYztFQUNoQjtBQUVGO0lBQ0kseUJBQXlCO0lBQ3pCLHNCQUFzQjtBQUMxQjtBQUVBO0lBQ0k7UUFDSSxXQUFXO0lBQ2Y7O0lBRUE7OztPQUdHO0FBQ1A7QUFFQTtJQUNJO1FBQ0ksdUJBQXVCO0lBQzNCOztBQUVKIiwiZmlsZSI6InNyYy9hcHAvbmF2L25hdi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogLmZvcm0tY29udHJvbCB7XG4gICAgd2lkdGg6IDIwMHB4O1xufSAqL1xuLnNpbXAtbmF2IHtcbiAgICBoZWlnaHQ6IDUwcHggIWltcG9ydGFudDtcbiAgICBjb2xvcjogI2ZmZjtcbn1cblxuLnNpbXAtbmF2IGEge1xuICAgIGNvbG9yOiAjZmZmO1xufVxuXG4udG9wLWZvcm0gaW5wdXRbdHlwZT1cInRleHRcIl0ge1xuICAgIHdpZHRoOiA0MzlweDtcbiAgICBoZWlnaHQ6IDI4cHg7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIG91dGxpbmU6IG5vbmU7XG4gICAgYm9yZGVyLXJhZGl1czogMDtcbn1cblxuLnRvcC1mb3JtIGlucHV0W3R5cGU9XCJ0ZXh0XCJdOmZvY3VzIHtcbiAgICBib3JkZXItY29sb3I6IHRyYW5zcGFyZW50O1xufVxuXG4udG9wLWZvcm0gYnV0dG9uIHtcbiAgICB3aWR0aDogNDZweDtcbiAgICBoZWlnaHQ6IDI4cHg7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIG91dGxpbmU6IDA7XG4gICAgYm9yZGVyLXJhZGl1czogMDtcbiAgICBwYWRkaW5nOiAwO1xuICAgIG1hcmdpbi1sZWZ0OiAtNDZweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cblxuLnRvcC1mb3JtIGJ1dHRvbiBpIHtcbiAgICBjb2xvcjogIzI3MjgyYztcbn1cblxuLndyYXBwZXIge1xuICAgIHdpZHRoOiA5MCU7XG4gICAgbWFyZ2luOiAwIGF1dG87XG59XG4uZHJvcGRvd24tbWVudSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzAwYWRmZjtcbn1cbi5kcm9wZG93bjpob3Zlcj4uZHJvcGRvd24tbWVudSB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gIH1cblxuLmRyb3Bkb3duLW1lbnUgPiBhOmhvdmVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDBiN2ZmO1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IG5vbmU7XG59XG5cbkBtZWRpYSAobWF4LXdpZHRoOiA5OTRweCkge1xuICAgIC50b3AtZm9ybSBpbnB1dFt0eXBlPVwidGV4dFwiXSB7XG4gICAgICAgIHdpZHRoOiBhdXRvO1xuICAgIH1cblxuICAgIC8qIC5zaW1wLW5hdixcbiAgICAud3JhcHBlciB7XG4gICAgICAgIG1pbi13aWR0aDogOTk0cHg7XG4gICAgfSAqL1xufVxuXG5AbWVkaWEgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgICAuc2ltcC1uYXYge1xuICAgICAgICBoZWlnaHQ6IGF1dG8gIWltcG9ydGFudDtcbiAgICB9XG5cbn0iXX0= */"
 
 /***/ }),
 
@@ -598,7 +868,7 @@ module.exports = "/* .form-control {\n    width: 200px;\n} */\n.simp-nav {\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n    <nav class=\"navbar navbar-expand-md navbar-dark fixed-top simp-nav bg-gradient\">\n        <div class=\"wrapper\">\n\n            <button aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" class=\"navbar-toggler\"\n                    data-target=\"#navbarsExampleDefault\" data-toggle=\"collapse\" type=\"button\">\n                <span class=\"navbar-toggler-icon\"></span>\n            </button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n                <a class=\"navbar-brand flex-grow-1\" routerLink='/simplante'>Simplante</a>\n                <form class=\"form-inline top-form\">\n                    <input aria-label=\"Search\" class=\"form-control\" placeholder=\"Search\" type=\"text\">\n                    <button class=\"btn btn-secondary\" type=\"submit\"><i class=\"ion-search\"></i></button>\n                </form>\n                <ul class=\"navbar-nav ml-auto\">\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"#\"><img alt=\"profile-picture\" class=\"profil\"\n                                                          height=\"24\" src=\"../../assets/img/avatars/profil.png\"\n                                                          style=\"border-radius: 50%; margin-right:2px\"\n                                                          width=\"24\">Name<span class=\"sr-only\"></span></a>\n                    </li>\n                    <li class=\"nav-item active\">\n                        <a class=\"nav-link\" routerLink='/simplante'>Simplante<span class=\"sr-only\">(current)</span></a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"#\"><i class=\"ion-plus-circled\"></i></a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" routerLink='/login'>Connexion</a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <!-- <nav class=\"navbar navbar-dark navbar-expand-lg fixed-top bg-white sp-nav gradient\">\n      <div class=\"container\">\n        <a class=\"navbar-brand logo flex-grow-1\" routerLink='/'>Simplante</a>\n        <button class=\"navbar-toggler\" data-toggle=\"collapse\" data-target=\"#navbarNav\"><span class=\"sr-only\">Toggle\n            navigation</span><span class=\"navbar-toggler-icon\"></span></button>\n        <div class=\"flex-grow-1 d-flex justify-content-center\">\n          <form class=\"form-inline my-2 my-lg-0 flex-nowrap\">\n            <input class=\"form-control mr-sm-2\" [(ngModel)]=\"motCle\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n            <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=\"SimplantesComponent.chercher()\">Q</button>\n          </form>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n          <ul class=\"nav navbar-nav ml-auto\">\n            <li class=\"nav-item\" role=\"home\"><a class=\"nav-link\" routerLinkActive=\"isActive\" routerLink=\"/\">Home</a></li>\n            <li class=\"nav-item\" role=\"simplante\"><a class=\"nav-link\" routerLinkActive=\"isActive\" routerLink='/simplante'>Les\n                Simplantes</a></li>\n            <li class=\"nav-item\" role=\"ajouterSimplante\"><a class=\"nav-link\" routerLinkActive=\"isActive\" routerLink='/ajouter-simplante'>Ajouter\n                Simplantes</a></li>\n            <li class=\"nav-item dropdown\">\n              <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"\n                aria-haspopup=\"true\" aria-expanded=\"false\">\n                Admin\n              </a>\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                  <a class=\"dropdown-item\" href=\"#\">Gestion des Postes</a>\n                <a class=\"dropdown-item\" href=\"#\">Gestion Utilisateurs</a>\n                <a class=\"dropdown-item\" href=\"#\">Gestion des Commentaires</a>\n                <a class=\"dropdown-item\" href=\"#\">Gestion des Catégories</a>\n\n                <div class=\"dropdown-divider\"></div>\n                <a class=\"dropdown-item\" href=\"#\">Déconnexion</a>\n              </div>\n            </li>\n          </ul>\n          <ul class=\"nav navbar-nav flex-row justify-content-between ml-auto\">\n              <li class=\"nav-item dropdown\">\n                  <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">Login</a>\n                  <ul class=\"dropdown-menu dropdown-menu-right mt-2\">\n                     <li class=\"px-3 py-2\">\n                         <form class=\"form\" role=\"form\">\n                              <div class=\"form-group\">\n                                  <input id=\"emailInput\" placeholder=\"Email\" class=\"form-control form-control-sm\" type=\"text\" required=\"\">\n                              </div>\n                              <div class=\"form-group\">\n                                  <input id=\"passwordInput\" placeholder=\"Password\" class=\"form-control form-control-sm\" type=\"text\" required=\"\">\n                              </div>\n                              <div class=\"form-group\">\n                                  <button type=\"submit\" class=\"btn btn-primary btn-block\">Login</button>\n                              </div>\n                              <div class=\"form-group text-center\">\n                                  <small><a href=\"#\" data-toggle=\"modal\" data-target=\"#modalPassword\">Forgot password?</a></small>\n                              </div>\n                          </form>\n                      </li>\n                  </ul>\n              </li>\n          </ul>\n        </div>\n      </div>\n    </nav> -->\n</header>"
+module.exports = "<header>\n    <nav class=\"navbar navbar-expand-md navbar-dark fixed-top simp-nav bg-gradient\">\n        <div class=\"wrapper\">\n           \n            <!--Icone Burger-->\n            <button aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"\n                class=\"navbar-toggler\" data-target=\"#navbarsExampleDefault\" data-toggle=\"collapse\" type=\"button\">\n                <span class=\"navbar-toggler-icon\"></span>\n            </button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n                \n                <a class=\"navbar-brand flex-grow-1\" routerLink='/simplante'>Simplante</a>\n                \n                <!--Barre de Recherche-->\n                <form class=\"form-inline top-form\">\n                    <input aria-label=\"Search\" class=\"form-control\" placeholder=\"Search\" type=\"text\">\n                    <button class=\"btn btn-secondary\" type=\"submit\"><i class=\"ion-search\"></i></button>\n                </form>\n                \n                <ul class=\"navbar-nav ml-auto\">\n                    \n                    <!--Menu profil-->\n                    <li class=\"nav-item dropdown\" *ngIf=\"isAuthenticated()\" >\n                        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\"\n                            data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img alt=\"profile-picture\" class=\"profil\" height=\"24\"\n                            src=\"../../assets/img/avatars/profil.png\" style=\"border-radius: 50%; margin-right:2px\"\n                            width=\"24\">Name<span class=\"sr-only\"></span></a>\n\n                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                            <a *ngIf=\"isUser()\" class=\"dropdown-item\" href=\"#\">Gestion des Simplantes</a>\n                            <a *ngIf=\"isAdmin()\" class=\"dropdown-item\" href=\"#\">Gestion Utilisateurs</a>\n                            <a *ngIf=\"isAdmin()\" class=\"dropdown-item\" href=\"#\">Gestion des Commentaires</a>\n                            <a *ngIf=\"isAdmin()\" class=\"dropdown-item\" href=\"#\">Gestion des Catégories</a>\n                            <a class=\"dropdown-item\" href=\"#\">Parametre</a>\n                            <div class=\"dropdown-divider\"></div>\n                            <a class=\"dropdown-item\" href='' (click)=\"logout()\">Déconnexion</a>\n                        </div>\n                    \n                        <!--Lien-->\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" routerLink='/simplante'>Simplante<span class=\"sr-only\">(current)</span></a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"#\"><i class=\"ion-plus-circled\"></i></a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a *ngIf=\"!isAuthenticated()\"class=\"nav-link\" routerLink='/login'>Connexion</a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <!-- <nav class=\"navbar navbar-dark navbar-expand-lg fixed-top bg-white sp-nav gradient\">\n      <div class=\"container\">\n        <a class=\"navbar-brand logo flex-grow-1\" routerLink='/'>Simplante</a>\n        <button class=\"navbar-toggler\" data-toggle=\"collapse\" data-target=\"#navbarNav\"><span class=\"sr-only\">Toggle\n            navigation</span><span class=\"navbar-toggler-icon\"></span></button>\n        <div class=\"flex-grow-1 d-flex justify-content-center\">\n          <form class=\"form-inline my-2 my-lg-0 flex-nowrap\">\n            <input class=\"form-control mr-sm-2\" [(ngModel)]=\"motCle\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n            <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=\"SimplantesComponent.chercher()\">Q</button>\n          </form>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n          <ul class=\"nav navbar-nav ml-auto\">\n            <li class=\"nav-item\" role=\"home\"><a class=\"nav-link\" routerLinkActive=\"isActive\" routerLink=\"/\">Home</a></li>\n            <li class=\"nav-item\" role=\"simplante\"><a class=\"nav-link\" routerLinkActive=\"isActive\" routerLink='/simplante'>Les\n                Simplantes</a></li>\n            <li class=\"nav-item\" role=\"ajouterSimplante\"><a class=\"nav-link\" routerLinkActive=\"isActive\" routerLink='/ajouter-simplante'>Ajouter\n                Simplantes</a></li>\n            <li class=\"nav-item dropdown\">\n              <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"\n                aria-haspopup=\"true\" aria-expanded=\"false\">\n                Admin\n              </a>\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                  <a class=\"dropdown-item\" href=\"#\">Gestion des Postes</a>\n                <a class=\"dropdown-item\" href=\"#\">Gestion Utilisateurs</a>\n                <a class=\"dropdown-item\" href=\"#\">Gestion des Commentaires</a>\n                <a class=\"dropdown-item\" href=\"#\">Gestion des Catégories</a>\n\n                <div class=\"dropdown-divider\"></div>\n                <a class=\"dropdown-item\" href=\"#\">Déconnexion</a>\n              </div>\n            </li>\n          </ul>\n          <ul class=\"nav navbar-nav flex-row justify-content-between ml-auto\">\n              <li class=\"nav-item dropdown\">\n                  <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">Login</a>\n                  <ul class=\"dropdown-menu dropdown-menu-right mt-2\">\n                     <li class=\"px-3 py-2\">\n                         <form class=\"form\" role=\"form\">\n                              <div class=\"form-group\">\n                                  <input id=\"emailInput\" placeholder=\"Email\" class=\"form-control form-control-sm\" type=\"text\" required=\"\">\n                              </div>\n                              <div class=\"form-group\">\n                                  <input id=\"passwordInput\" placeholder=\"Password\" class=\"form-control form-control-sm\" type=\"text\" required=\"\">\n                              </div>\n                              <div class=\"form-group\">\n                                  <button type=\"submit\" class=\"btn btn-primary btn-block\">Login</button>\n                              </div>\n                              <div class=\"form-group text-center\">\n                                  <small><a href=\"#\" data-toggle=\"modal\" data-target=\"#modalPassword\">Forgot password?</a></small>\n                              </div>\n                          </form>\n                      </li>\n                  </ul>\n              </li>\n          </ul>\n        </div>\n      </div>\n    </nav> -->\n</header>"
 
 /***/ }),
 
@@ -613,79 +883,44 @@ module.exports = "<header>\n    <nav class=\"navbar navbar-expand-md navbar-dark
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavComponent", function() { return NavComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/authentication.service */ "./src/app/service/authentication.service.ts");
+
+
 
 
 var NavComponent = /** @class */ (function () {
-    function NavComponent() {
+    function NavComponent(authService, router) {
+        this.authService = authService;
+        this.router = router;
     }
     NavComponent.prototype.ngOnInit = function () {
+        this.authService.loadToken();
+    };
+    NavComponent.prototype.isAdmin = function () {
+        return this.authService.isAdmin();
+    };
+    NavComponent.prototype.isUser = function () {
+        return this.authService.isUser();
+    };
+    NavComponent.prototype.isAuthenticated = function () {
+        return this.authService.isAuthenticated();
+    };
+    NavComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.router.navigateByUrl('/');
     };
     NavComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-nav',
             template: __webpack_require__(/*! ./nav.component.html */ "./src/app/nav/nav.component.html"),
             styles: [__webpack_require__(/*! ./nav.component.css */ "./src/app/nav/nav.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], NavComponent);
     return NavComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/new-feed/new-feed.component.css":
-/*!*************************************************!*\
-  !*** ./src/app/new-feed/new-feed.component.css ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/* .row{\n    padding-top: 50px;\n}\n.sidebar{\n    width: auto;\n}\n.main-body-content{\n    width: 500px;\n} */\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmV3LWZlZWQvbmV3LWZlZWQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7R0FRRyIsImZpbGUiOiJzcmMvYXBwL25ldy1mZWVkL25ldy1mZWVkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiAucm93e1xuICAgIHBhZGRpbmctdG9wOiA1MHB4O1xufVxuLnNpZGViYXJ7XG4gICAgd2lkdGg6IGF1dG87XG59XG4ubWFpbi1ib2R5LWNvbnRlbnR7XG4gICAgd2lkdGg6IDUwMHB4O1xufSAqLyJdfQ== */"
-
-/***/ }),
-
-/***/ "./src/app/new-feed/new-feed.component.html":
-/*!**************************************************!*\
-  !*** ./src/app/new-feed/new-feed.component.html ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\n    <div class=\"col-md-4\">\n        <app-sidebar></app-sidebar>\n    </div>\n    <!-- <div class=\"main-body-content\"> -->\n    <div class=\"col-md-8 gedf-main\">\n        <router-outlet></router-outlet>\n    </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/new-feed/new-feed.component.ts":
-/*!************************************************!*\
-  !*** ./src/app/new-feed/new-feed.component.ts ***!
-  \************************************************/
-/*! exports provided: NewFeedComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewFeedComponent", function() { return NewFeedComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var NewFeedComponent = /** @class */ (function () {
-    function NewFeedComponent() {
-    }
-    NewFeedComponent.prototype.ngOnInit = function () {
-    };
-    NewFeedComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-new-feed',
-            template: __webpack_require__(/*! ./new-feed.component.html */ "./src/app/new-feed/new-feed.component.html"),
-            styles: [__webpack_require__(/*! ./new-feed.component.css */ "./src/app/new-feed/new-feed.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], NewFeedComponent);
-    return NewFeedComponent;
 }());
 
 
@@ -781,16 +1016,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config */ "./src/app/config.ts");
+
+
 
 
 
 var AuthenticationService = /** @class */ (function () {
     function AuthenticationService(http) {
         this.http = http;
-        this.host2 = 'http://localhost:8080/login';
+        this.LOGIN_URL = _config__WEBPACK_IMPORTED_MODULE_4__["Config"].LOGIN_URL;
     }
     AuthenticationService.prototype.login = function (data) {
-        return this.http.post(this.host2, data, { observe: 'response' });
+        return this.http.post(this.LOGIN_URL, data, { observe: 'response' });
+    };
+    AuthenticationService.prototype.saveToken = function (jwt) {
+        localStorage.setItem('token', jwt);
+        this.jwt = jwt;
+        this.parseJWT();
+        console.log('JWt: ', this.jwt);
+        console.log('Roles: ', this.roles);
+        console.log('Username: ', this.username);
+    };
+    AuthenticationService.prototype.parseJWT = function () {
+        var jwtHelper = new _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_3__["JwtHelperService"]();
+        var objJWT = jwtHelper.decodeToken(this.jwt);
+        this.username = objJWT.Subject;
+        this.roles = objJWT.authorities;
+    };
+    AuthenticationService.prototype.isAdmin = function () {
+        return this.roles.indexOf('ROLE_ADMIN') >= 0;
+    };
+    AuthenticationService.prototype.isUser = function () {
+        return this.roles.indexOf('ROLE_USER') >= 0;
+    };
+    AuthenticationService.prototype.isAuthenticated = function () {
+        return this.roles;
+    };
+    AuthenticationService.prototype.loadToken = function () {
+        this.jwt = localStorage.getItem('token');
+        this.parseJWT();
+    };
+    AuthenticationService.prototype.logout = function () {
+        localStorage.removeItem('token');
+        this.jwt = undefined;
+        this.username = undefined;
+        this.roles = undefined;
     };
     AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
@@ -818,16 +1090,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../config */ "./src/app/config.ts");
+
 
 
 
 var CategoryService = /** @class */ (function () {
     function CategoryService(http) {
         this.http = http;
-        this.categoriesUrl = 'http://localhost:8080/api/categories';
+        this.API_URL = _config__WEBPACK_IMPORTED_MODULE_3__["Config"].API_URL;
     }
     CategoryService.prototype.getCategories = function () {
-        return this.http.get(this.categoriesUrl).pipe(function (resp) { return resp; });
+        return this.http.get(this.API_URL + "/categories").pipe(function (resp) { return resp; });
     };
     CategoryService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -856,6 +1130,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config */ "./src/app/config.ts");
+
 
 
 
@@ -863,10 +1139,7 @@ __webpack_require__.r(__webpack_exports__);
 var SimplantesService = /** @class */ (function () {
     function SimplantesService(http) {
         this.http = http;
-        // URL de l'api
-        // simplanteUrl = 'http://localhost:8080/simplante';
-        this.simplanteUrl = 'http://localhost:8080/api/posts';
-        this.categoriesUrl = 'http://localhost:8080/api/categories';
+        this.API_URL = _config__WEBPACK_IMPORTED_MODULE_4__["Config"].API_URL;
     }
     SimplantesService.prototype.getSimplante = function (id) {
         return this.getAllSimplantes().pipe(
@@ -876,13 +1149,13 @@ var SimplantesService = /** @class */ (function () {
         }));
     };
     SimplantesService.prototype.getAllSimplantes = function () {
-        return this.http.get(this.simplanteUrl).pipe(function (resp) { return resp; });
+        return this.http.get(this.API_URL + '/posts').pipe(function (resp) { return resp; });
     };
     SimplantesService.prototype.saveSimplante = function (simplante) {
-        return this.http.post(this.simplanteUrl, simplante).pipe(function (resp) { return resp; });
+        return this.http.post(this.API_URL + '/posts', simplante).pipe(function (resp) { return resp; });
     };
     SimplantesService.prototype.getSimplanteByCategories = function (id) {
-        return this.http.get(this.categoriesUrl + "/" + id + "/posts").pipe(function (resp) { return resp; });
+        return this.http.get(this.API_URL + "/categories/" + id + "/posts").pipe(function (resp) { return resp; });
     };
     SimplantesService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

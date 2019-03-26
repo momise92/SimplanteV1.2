@@ -10,13 +10,18 @@ import { AuthenticationService } from '../service/authentication.service';
     styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+    name: any;
     constructor(
         private authService: AuthenticationService,
         private router: Router
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.authService.loadToken();
+    }
+
+    user() {
+        return this.authService.username;
     }
 
     isAdmin() {

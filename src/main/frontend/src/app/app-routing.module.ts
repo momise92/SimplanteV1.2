@@ -5,6 +5,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {SimplantesComponent} from './simplantes/simplantes.component';
 import {AddSimplanteComponent} from './add-simplante/add-simplante.component';
+import { AdminCategoriesComponent } from './admin-categories/admin-categories.component';
 
 const routes: Routes = [
     {path: 'simplante', component: SimplantesComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
     {path: 'simplante/:id', component: OneSimplanteComponent},
     {path: 'category/:id/simplante', component: SimplantesByCategorieComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'adminCategories', component: AdminCategoriesComponent},
     // { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 

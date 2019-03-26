@@ -24,13 +24,13 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="profile-picture" class="profil" height="24"
                             src="../../assets/img/avatars/profil.png" style="border-radius: 50%; margin-right:2px"
-                            width="24">Name<span class="sr-only"></span></a>
+                            width="24">{{user()}}<span class="sr-only"></span></a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a *ngIf="isUser()" class="dropdown-item" href="#">Gestion des Simplantes</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" href="#">Gestion Utilisateurs</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" href="#">Gestion des Commentaires</a>
-                            <a *ngIf="isAdmin()" class="dropdown-item" href="#">Gestion des Catégories</a>
+                            <a *ngIf="isAdmin()" class="dropdown-item" routerLink='/adminCategories'>Gestion des Catégories</a>
                             <a class="dropdown-item" href="#">Parametre</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href='' (click)="logout()">Déconnexion</a>
