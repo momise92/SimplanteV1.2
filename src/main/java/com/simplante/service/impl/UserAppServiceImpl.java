@@ -1,6 +1,7 @@
 package com.simplante.service.impl;
 
 import com.simplante.dao.CommentRepository;
+import com.simplante.dao.PostRepository;
 import com.simplante.dao.RoleAppRepository;
 import com.simplante.dao.UserAppRepository;
 import com.simplante.model.Comment;
@@ -9,6 +10,7 @@ import com.simplante.model.RoleApp;
 import com.simplante.model.UserApp;
 import com.simplante.service.UserAppService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,12 +25,14 @@ public class UserAppServiceImpl implements UserAppService {
     private UserAppRepository userAppRepository;
     private RoleAppRepository roleAppRepository;
     private CommentRepository commentRepository;
+    private PostRepository postRepository;
     private PasswordEncoder passwordEncoder;
 
-    public UserAppServiceImpl(UserAppRepository userAppRepository, RoleAppRepository roleAppRepository, CommentRepository commentRepository, PasswordEncoder passwordEncoder) {
+    public UserAppServiceImpl(UserAppRepository userAppRepository, RoleAppRepository roleAppRepository, CommentRepository commentRepository, PostRepository postRepository, PasswordEncoder passwordEncoder) {
         this.userAppRepository = userAppRepository;
         this.roleAppRepository = roleAppRepository;
         this.commentRepository = commentRepository;
+        this.postRepository = postRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -106,8 +110,13 @@ public class UserAppServiceImpl implements UserAppService {
     }
 
     @Override
-    public List<Post> getPostByUser(String username) {
-        return null;
+    public List<Post> getPostByCurrentUser(String username) throws Exception {
+        UserApp userApp = userAppRepository.findByUsername(username);
+        if(userApp.getPosts().isEmpty()){
+            log.error("Cannot find post for this user " + userApp.getUsername());
+        throw new Exception("Post not found for this " + userApp.getUsername());
+        }
+        return postRepository.findByUser(userApp);
     }
 }
 

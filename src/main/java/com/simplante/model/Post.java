@@ -37,7 +37,7 @@ public class Post {
 
     private int vote;
 
-    //Liste de user qui ont like
+    //A faire Liste de user qui ont like
 
     @Column(nullable = false)
     private Boolean status = false;
@@ -48,10 +48,10 @@ public class Post {
     @JoinColumn(name = "userId", insertable = false, updatable = false)
     private UserApp user;
 
-    private Long categoryId;
+   /* private Long categoryId;*/
 
-    @ManyToOne
-    @JoinColumn(name = "categoryId", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoryId")
     private Category category;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -154,17 +154,21 @@ public class Post {
         this.userId = userId;
     }
 
-    /*public Category getCategory() {
+    public Category getCategory() {
         return category;
-    }*/
+    }
 
-    public Long getCategoryId() {
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    /*public Long getCategoryId() {
         return categoryId;
     }
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
-    }
+    }*/
 
     public Set<Comment> getComments() {
         return comments;
@@ -172,5 +176,23 @@ public class Post {
 
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+
+        if (!(o instanceof Post))
+            return false;
+
+        return id != null && id.equals(((Post) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
     }
 }

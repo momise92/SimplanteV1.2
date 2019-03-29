@@ -1,30 +1,43 @@
-import { CategoryService } from './../../service/category.service';
-import { SimplantesService } from './../../service/simplantes.service';
+import { UserService } from './../../service/user.service';
+import { AuthenticationService } from './../../service/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { Simplante } from 'src/app/model/model.simplante';
 import { Category } from 'src/app/model/model.category';
+import { SimplantesService } from 'src/app/service/simplantes.service';
+import { CategoryService } from 'src/app/service/category.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-admin-simplantes',
-  templateUrl: './admin-simplantes.component.html',
-  styleUrls: ['./admin-simplantes.component.css']
+  selector: 'app-user-simplantes',
+  templateUrl: './user-simplantes.component.html',
+  styleUrls: ['./user-simplantes.component.css']
 })
-export class AdminSimplantesComponent implements OnInit {
+export class UserSimplantesComponent implements OnInit {
 
-  public simplantes: Simplante[];
+
+  public simplantes: Observable<Simplante>;
   public categories: Category;
+  public username;
   public mode = 'list';
   public currentSimplante = {} as Simplante;
 
-  constructor( private simplantesService: SimplantesService, private catService: CategoryService) { }
+  constructor(
+    private simplantesService: SimplantesService,
+    private catService: CategoryService,
+    private authService: AuthenticationService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() { this.loadSimplante(); }
 
   loadSimplante() {
-    this.simplantesService.getAllSimplantes().subscribe(
-      data => {this.simplantes = data; },
-      err => {console.log(err); });
-  }
+    // this.route.params.subscribe(
+    //   paramsUsername => {
+        this.username = this.authService.username;
+        this.simplantes = this.simplantesService.getSimplanteByUser(this.username);
+        console.log(this.simplantes);
+      }
 
   GetSimplanteId(id: number) {
     this.getCategories();
@@ -64,6 +77,7 @@ export class AdminSimplantesComponent implements OnInit {
       return console.log(err);
     });
   }
+
   getCategories() {
     this.catService.getCategories()
         .subscribe(data => {

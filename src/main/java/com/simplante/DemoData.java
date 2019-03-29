@@ -16,14 +16,16 @@ public class DemoData implements ApplicationRunner {
     private CommentRepository commentRepository;
     private UserAppService userAppService;
     private RoleAppRepository roleAppRepository;
+    private PostRepository postRepository;
 
     public DemoData(CategoryRepository categoryRepository, PostService postService, CommentRepository commentRepository,
-                    UserAppService userAppService, RoleAppRepository roleAppRepository) {
+                    UserAppService userAppService, RoleAppRepository roleAppRepository, PostRepository postRepository) {
         this.categoryRepository = categoryRepository;
         this.postService = postService;
         this.commentRepository = commentRepository;
         this.userAppService = userAppService;
         this.roleAppRepository = roleAppRepository;
+        this.postRepository = postRepository;
     }
 
     @Override
@@ -41,19 +43,19 @@ public class DemoData implements ApplicationRunner {
         Post post1 = new Post();
         post1.setTitle("Premier post");
         post1.setBody("Voilà le premier test Yes !!");
-        post1.setCategoryId(1L);
-        postService.savePost(post1);
+        post1.setCategory(categoryRepository.findById(1L).get());
+        postRepository.save(post1);
 
         Comment comment = new Comment("De la bombe");
         commentRepository.save(comment);
         post1.addComment(comment);
-        postService.savePost(post1);
+        postRepository.save(post1);
 
         Post post2 = new Post();
         post2.setTitle("Deuxieme post");
         post2.setBody("Voilà le deuxième test Yes !!");
-        post2.setCategoryId(1L);
-        postService.savePost(post2);
+        post2.setCategory(category2);
+        postRepository.save(post2);
 
         roleAppRepository.save(new RoleApp("ADMIN"));
         roleAppRepository.save(new RoleApp("USER"));
@@ -65,9 +67,6 @@ public class DemoData implements ApplicationRunner {
                 "Carter", "Guetchly"));
 
         userAppService.addRoleToUser("admin", "ADMIN");
-
-        post2.setUserId(1L);
-        postService.savePost(post2);
 
     }
 }

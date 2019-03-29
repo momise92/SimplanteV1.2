@@ -8,12 +8,14 @@ import { Category } from '../../model/model.category';
   styleUrls: ['./admin-categories.component.css']
 })
 export class AdminCategoriesComponent implements OnInit {
-  constructor(
-    private categoryService: CategoryService
-  ) { }
+
   categories: any;
   mode = 'list';
   currentCategory = {} as Category;
+
+  constructor(
+    private categoryService: CategoryService
+  ) { }
 
   ngOnInit() {
     this.loadCategories();

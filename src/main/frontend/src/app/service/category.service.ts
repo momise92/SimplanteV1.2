@@ -19,27 +19,22 @@ export class CategoryService {
     }
 
     getCategories(): Observable<Category> {
-        const header = new HttpHeaders({'authorization': this.authService.jwt});
         return this.http.get<Category>(`${this.API_URL}/categories`);
     }
 
     getCategory(id: number): Observable<Category> {
-        const header = new HttpHeaders({'authorization': this.authService.jwt});
         return this.http.get<Category>(`${this.API_URL}/categories/${id}`);
     }
 
     addCategory(category: any): Observable<Category> {
-        const header = new HttpHeaders({'authorization': this.authService.jwt});
-        return this.http.post<Category>(`${this.API_URL}/categories`, category, {headers: header});
+        return this.http.post<Category>(`${this.API_URL}/categories`, category);
     }
 
     updateCategory(id: number, category: Category): Observable<Category> {
-        const header = new HttpHeaders({'authorization': this.authService.jwt});
-        return this.http.put<Category>(`${this.API_URL}/categories/${id}`, category, {headers: header});
+        return this.http.put<Category>(`${this.API_URL}/categories/${id}`, category);
     }
 
     deleteCategory(id: number): Observable<void> {
-        const header = new HttpHeaders({'authorization': this.authService.jwt});
-        return this.http.delete<void>(`${this.API_URL}/categories/${id}`, {headers: header});
+        return this.http.delete<void>(`${this.API_URL}/categories/${id}`);
     }
 }

@@ -1,3 +1,105 @@
-<p>
-  admin-simplantes works!
-</p>
+<div class="panel panel-default panel-table mx-auto col-md-10">
+  <div class="card-header bg-gradient">
+    <div class="row">
+      <div class="col col-xs-6">
+        <h4 class="panel-title text-white">Gestion des simplantes</h4>
+      </div>
+      <div class="col col-xs-6 text-right">
+        <button type="button" class="btn btn-sm btn-create text-white" (click)="newSimplante()"><i
+            class="fas fa-plus"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!--Formulaire d'ajout-->
+  <div class="panel-body">
+    <div *ngIf="mode =='new-cat'">
+      <form class="form mt-4" #form="ngForm" (ngSubmit)="saveSimplante(form.value)">
+        <div class="form-group col-xs-6">
+          <label class="sr-only" for="title">title</label>
+          <input type="text" ngModel class="form-control" maxlength="100" minlength="5" name="title" placeholder="Titre" required>
+        </div>
+        <div class="form-group col-xs-6">
+          <label class="sr-only" for="body">post</label>
+          <textarea ngModel class="form-control" name="body" placeholder="Laissez-nous savoir ce que vous pensez. "
+            required rows="3"></textarea>
+        </div>
+        <div class="btn-group">
+            <select ngModel name="categoryId" required>
+                <option value="">Select one category</option>
+                <option *ngFor="let cat of categories" [ngValue]='cat.id'>{{cat.name}}</option>
+            </select>
+        </div>
+        <div class="col-sm-3 mx-auto">
+          <button [disabled]="!form.form.valid" class="btn btn-primary mr-2" type="submit">Ajouter</button>
+          <button class="btn btn-secondary" (click)="mode='list'">Annuler</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!--Formulaire d'edit-->
+  <div class="panel-body">
+    <div *ngIf="mode =='edit-cat'">
+      <form class="form mt-4" #form="ngForm" (ngSubmit)="editSimplante(form.value)">
+        <div class="form-group col-xs-6">
+            <label class="sr-only" for="title">title</label>
+            <input type="text" [(ngModel)]="currentSimplante.title" class="form-control" maxlength="100" minlength="5" name="title" placeholder="Titre" required>
+        </div>
+        <div class="form-group col-xs-6">
+            <label class="sr-only" for="body">post</label>
+            <textarea [(ngModel)]="currentSimplante.body" class="form-control" name="body" placeholder="Laissez-nous savoir ce que vous pensez. " required rows="3"></textarea>
+          </div>
+          <div class="btn-group">
+              <select [(ngModel)]="currentSimplante.categoryId" name="categoryId" required>
+                  <option [ngValue]="undefined" hidden>Select one category</option>
+                  <option *ngFor="let cat of categories" [ngValue]='cat.id'>{{cat.name}}</option>
+              </select>
+          </div>
+        <div class="col-sm-3 float-right">
+          <button [disabled]="!form.form.valid" class="btn btn-primary mr-2" type="submit">Ajouter</button>
+          <button class="btn btn-secondary" (click)="mode='list'">Annuler</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="panel-body" *ngIf="mode=='list'">
+    <table class="table table-striped table-bordered table-list" *ngIf="simplantes">
+      <thead>
+        <tr>
+          <th><em class="fa fa-cog"></em></th>
+          <th>Titre</th>
+          <th>Date Création</th>
+          <th>Date modification</th>
+          <th>Auteur</th>
+          <th>Catégorie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let simplante of simplantes">
+          <td align="center">
+            <button class="btn" (click)="GetSimplanteId(simplante.id)">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn" (click)="deleteSimplante(simplante.id)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+          <td>{{simplante.title}}</td>
+          <td>{{simplante.createDate | date:'d MMM y HH:mm'}}</td>
+          <td>{{simplante.lastModified | date:'d MMM y HH:mm'}}</td>
+          <td>{{simplante.userUsername}}</td>
+          <td>{{simplante.categoryName}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer" *ngIf="mode=='list'">
+    <div class="row">
+      <div class="col col-xs-4">Page 1</div>
+    </div>
+  </div>
+</div>

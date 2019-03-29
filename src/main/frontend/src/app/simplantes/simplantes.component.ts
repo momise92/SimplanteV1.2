@@ -16,9 +16,7 @@ export class SimplantesComponent implements OnInit {
 
     constructor(
         private http: HttpClient,
-        private simplantesService: SimplantesService
-    ) {
-    }
+        private simplantesService: SimplantesService) { }
 
     ngOnInit() {
         this.getAllSimplante();

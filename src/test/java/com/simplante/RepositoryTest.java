@@ -29,7 +29,7 @@ public class RepositoryTest {
     private CommentRepository commentRepository;
 
 
-    @Test
+    /*@Test
     public void TestCategory() {
         Category c = new Category("comique");
         c.addPost(new Post("Title", "Somebody test category"));
@@ -38,7 +38,7 @@ public class RepositoryTest {
         assertNotNull(postRepository.findByCategoryId(1L));
 
 
-    }
+    }*/
 
     @Test
     public void TestPost() {
@@ -49,7 +49,7 @@ public class RepositoryTest {
         Category c = new Category("blague");
         categoryRepository.save(c);
 
-        p.setCategoryId(1L);
+        /*p.setCategoryId(1L);*/
         postRepository.save(p);
 
         assertNotNull(postRepository.findByTitle("comique And Pub"));

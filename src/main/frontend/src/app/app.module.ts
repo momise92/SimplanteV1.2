@@ -1,4 +1,4 @@
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
@@ -19,6 +19,9 @@ import { AdminCategoriesComponent } from './admin-dashboard/admin-categories/adm
 import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
 import { AdminSimplantesComponent } from './admin-dashboard/admin-simplantes/admin-simplantes.component';
 import { AdminCommentsComponent } from './admin-dashboard/admin-comments/admin-comments.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthInterceptor } from './auth-interceptor';
+import { UserSimplantesComponent } from './user-dashboard/user-simplantes/user-simplantes.component';
 
 @NgModule({
     declarations: [
@@ -36,10 +39,18 @@ import { AdminCommentsComponent } from './admin-dashboard/admin-comments/admin-c
         AdminCategoriesComponent,
         AdminUsersComponent,
         AdminSimplantesComponent,
-        AdminCommentsComponent
+        AdminCommentsComponent,
+        RegisterComponent,
+        UserSimplantesComponent
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-    providers: [],
+    providers: [
+        {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+      }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

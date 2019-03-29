@@ -1,9 +1,42 @@
-<div class="col-md-8">
+<div class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center">Authentification</h4>
+    <p class="divider-text">
+      <span class="bg-light">Ou</span>
+    </p>
+    <form #loginForm='ngForm' (ngSubmit)="onLogin(loginForm.value)">
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-user"></i></span>
+        </div>
+        <input name="username" ngModel required  class="form-control" placeholder="Pseudo" type="text">
+      </div>
+      <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input name="password" ngModel required class="form-control" placeholder="Mot de passe" type="password">
+      </div>
+      <!-- form-group// -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Connexion </button>
+      </div>
+      <!-- form-group// -->
+      <p class="text-center"> Pas de compte ?<a routerLink='/inscription'>S'inscrire</a></p>
+    </form>
+  </article>
+</div>
+
+
+<!--
+  <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
   <div class="card">
-    <div class="card-header">Authentification</div>
+    <div class="card-title mt-3 text-center">Authentification</div>
     <div class="card-body">
       <form #loginForm='ngForm' (ngSubmit)="onLogin(loginForm.value)">
-        <div class="form-group row">
+        <div class="form-group input-group">
           <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
           <div class="col-md-6">
             <input type="text" id="username" class="form-control" name="username" ngModel required autofocus>
@@ -25,4 +58,6 @@
       </form>
     </div>
   </div>
+  </article>
 </div>
+-->

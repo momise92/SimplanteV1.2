@@ -3,6 +3,7 @@ package com.simplante.service;
 import com.simplante.model.Comment;
 import com.simplante.model.Post;
 import com.simplante.model.UserApp;
+import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public interface UserAppService {
 
     List<Comment> getCommentByUser(UserApp userApp) throws Exception;
 
-    List<Post> getPostByUser(String username);
+    List<Post> getPostByCurrentUser(String username) throws Exception;
 
 
 }

@@ -9,6 +9,7 @@ import com.simplante.service.UserAppService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -74,6 +75,19 @@ public class UserAppController {
             if (userApp == null)
                 throw new Exception("USER_NOT_FOUND");
             return ResponseEntity.ok(userAppService.getCommentByUser(userApp));
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+    @GetMapping("/{username}/posts")
+    public ResponseEntity<?> getPostByUser(@PathVariable String username) {
+        try {
+            if(username != SecurityContextHolder.getContext().getAuthentication().getPrincipal())
+                throw new Exception("Can't see they posts");
+            return ResponseEntity.ok(userAppService.getPostByCurrentUser(username));
         } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

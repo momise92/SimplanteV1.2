@@ -10,7 +10,7 @@ import { AuthenticationService } from '../service/authentication.service';
     styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-    name: any;
+    name = this.authService.username;
     constructor(
         private authService: AuthenticationService,
         private router: Router

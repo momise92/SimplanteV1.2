@@ -1,5 +1,7 @@
 package com.simplante.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,7 +23,7 @@ public class Category {
     @Column(name = "name", unique = true, length = 50)
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.MERGE)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
     private Set<Post> posts = new HashSet<>();
 
     public Category() {
@@ -31,14 +33,15 @@ public class Category {
         this.name = name;
     }
 
+
     public void addPost(Post post) {
         this.posts.add(post);
-        post.setCategoryId(this.getId());
+        post.setCategory(this);
     }
 
     public void removePost(Post post) {
         this.posts.remove(post);
-        post.setCategoryId(null);
+        post.setCategory(null);
     }
 
     public List<Post> getpost() {

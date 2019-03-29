@@ -7,6 +7,7 @@ export class Simplante {
     lastModified: Date;
     userId: number;
     categoryId: number;
+    categoryName: string;
     vote: number;
 
     constructor() {

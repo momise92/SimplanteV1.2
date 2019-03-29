@@ -25,9 +25,6 @@ roles: Array<string>;
         localStorage.setItem('token', jwt);
         this.jwt = jwt;
         this.parseJWT();
-        console.log('JWt: ', this.jwt);
-        console.log('Roles: ', this.roles);
-        console.log('Username: ', this.username);
       }
 
 
@@ -51,7 +48,9 @@ roles: Array<string>;
 
     loadToken() {
         this.jwt = localStorage.getItem('token');
-        this.parseJWT();
+        if (this.jwt) {
+            this.parseJWT();
+        }
     }
 
     logout() {

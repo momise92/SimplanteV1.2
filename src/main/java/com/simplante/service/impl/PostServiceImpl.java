@@ -2,10 +2,17 @@ package com.simplante.service.impl;
 
 import com.simplante.dao.CategoryRepository;
 import com.simplante.dao.PostRepository;
+import com.simplante.dao.UserAppRepository;
 import com.simplante.model.Category;
 import com.simplante.model.Post;
+import com.simplante.model.UserApp;
 import com.simplante.service.PostService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,9 +27,11 @@ public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
     private final CategoryRepository categoryRepository;
-    public PostServiceImpl(PostRepository postRepository, CategoryRepository categoryRepository) {
+    private final UserAppRepository userAppRepository;
+    public PostServiceImpl(PostRepository postRepository, CategoryRepository categoryRepository, UserAppRepository userAppRepository) {
         this.postRepository = postRepository;
         this.categoryRepository = categoryRepository;
+        this.userAppRepository = userAppRepository;
     }
 
     @Override
@@ -37,18 +46,25 @@ public class PostServiceImpl implements PostService {
     }
 
 
-    /*@Transactional*/
+    @Transactional
     @Override
     public Post savePost(Post post) throws Exception {
+        String user = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Post result = null;
         try {
+            post.setUserId(userAppRepository.findByUsername(user).getId());
             post.setCreateDate(LocalDateTime.now());
             post.setLastModified(LocalDateTime.now());
-            return postRepository.save(post);
+            result = postRepository.save(post);
+            Category category = categoryRepository.findById(post.getCategory().getId()).get();
+            category.addPost(result);
+            categoryRepository.save(category);
 
         } catch (Exception e) {
             log.error("Cannot save post:" + post);
             throw new Exception("Cannot save the post ",e);
         }
+        return result;
     }
 
 
@@ -60,6 +76,7 @@ public class PostServiceImpl implements PostService {
             throw new Exception("POST_ID "+ post.getId()+" NOT_FOUND");
         }
         post.setLastModified(LocalDateTime.now());
+        post.setUserId(result.get().getUserId());
         return postRepository.save(post);
     }
 
