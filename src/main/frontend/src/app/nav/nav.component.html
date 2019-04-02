@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 
-                <a class="navbar-brand flex-grow-1" routerLink='/'>Simplante</a>
+                <a class="navbar-brand" routerLink='/'>Simplante</a>
                 
                 <!--Barre de Recherche-->
                 <form class="form-inline top-form">
@@ -23,16 +23,16 @@
                     <li class="nav-item dropdown" *ngIf="isAuthenticated()" >
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="profile-picture" class="profil" height="24"
-                            src="../../assets/img/avatars/profil.png" style="border-radius: 50%; margin-right:2px"
+                            src="../../assets/img/avatars/profil.png" style="border-radius: 50%; margin-right:5px"
                             width="24">{{user()}}<span class="sr-only"></span></a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a *ngIf="isAdmin()" class="dropdown-item" routerLink='/adminSimplantes'>Gestion des Simplantes</a>
                             <a *ngIf="isUser()" class="dropdown-item" [routerLink]="['/user',user(),'simplante']">Gestion de mes Simplantes</a>
-                            <a *ngIf="isAdmin()" class="dropdown-item" routerLink='/adminSimplantes'>Gestion Utilisateurs</a>
+                            <a *ngIf="isAdmin()" class="dropdown-item" routerLink='/adminUsers'>Gestion des Utilisateurs</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" href="#">Gestion des Commentaires</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" routerLink='/adminCategories'>Gestion des Catégories</a>
-                            <a class="dropdown-item" href="#">Parametre</a>
+                            <a class="dropdown-item" href="#">Paramètres</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href='' (click)="logout()">Déconnexion</a>
                         </div>
@@ -40,11 +40,11 @@
                         <!--Lien-->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink='/simplante'>Simplante<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" routerLink='/'>Simplante<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#"><i class="ion-plus-circled"></i></a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a *ngIf="!isAuthenticated()"class="nav-link" routerLink='/login'>Connexion</a>
                     </li>

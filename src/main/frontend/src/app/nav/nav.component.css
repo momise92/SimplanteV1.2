@@ -38,11 +38,12 @@
 }
 
 .wrapper {
-    width: 90%;
+    width: 97%;
     margin: 0 auto;
 }
 .dropdown-menu {
     background-color: #00adff;
+    margin: .125rem -26px 0;
 }
 .dropdown:hover>.dropdown-menu {
     display: block;
@@ -53,6 +54,15 @@
     background-image: none;
 }
 
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 31%;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
 @media (max-width: 994px) {
     .top-form input[type="text"] {
         width: auto;
