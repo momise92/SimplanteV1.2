@@ -17,9 +17,8 @@ import { switchMap } from 'rxjs/operators';
 export class UserSimplantesComponent implements OnInit {
 
 
-  public simplantes: Observable<Simplante>;
+  public simplantes: Simplante;
   public categories: Category;
-  public username;
   public mode = 'list';
   public currentSimplante = {} as Simplante;
 
@@ -32,11 +31,14 @@ export class UserSimplantesComponent implements OnInit {
   ngOnInit() { this.loadSimplante(); }
 
   loadSimplante() {
-    // this.route.params.subscribe(
-    //   paramsUsername => {
-        this.username = this.authService.username;
-        this.simplantes = this.simplantesService.getSimplanteByUser(this.username);
-        console.log(this.simplantes);
+    this.simplantesService.getSimplanteByUser().subscribe(
+      data => {
+          this.simplantes = data;
+      },
+      error => {
+          console.log(error);
+      }
+  );
       }
 
   GetSimplanteId(id: number) {

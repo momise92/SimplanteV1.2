@@ -4,38 +4,6 @@
         <div class="col col-xs-6">
           <h4 class="panel-title text-white">Gestion des simplantes</h4>
         </div>
-        <div class="col col-xs-6 text-right">
-          <button type="button" class="btn btn-sm btn-create text-white" (click)="newSimplante()"><i
-              class="fas fa-plus"></i></button>
-        </div>
-      </div>
-    </div>
-  
-    <!--Formulaire d'ajout-->
-    <div class="panel-body">
-      <div *ngIf="mode =='new-cat'">
-        <form class="form mt-4" #form="ngForm" (ngSubmit)="saveSimplante(form.value)">
-          <div class="form-group col-xs-6">
-            <label class="sr-only" for="title">title</label>
-            <input type="text" ngModel class="form-control" maxlength="100" minlength="5" name="title" placeholder="Titre" required>
-          </div>
-          <div class="form-group col-xs-6">
-            <label class="sr-only" for="body">post</label>
-            <textarea ngModel class="form-control" name="body" placeholder="Laissez-nous savoir ce que vous pensez. "
-              required rows="3"></textarea>
-          </div>
-          <div class="btn-group">
-              <select ngModel name="categoryId" required>
-                  <option value="">Select one category</option>
-                  <option *ngFor="let cat of categories" [ngValue]='cat.id'>{{cat.name}}</option>
-              </select>
-          </div>
-          <div class="col-sm-3 mx-auto">
-            <button [disabled]="!form.form.valid" class="btn btn-primary mr-2" type="submit">Ajouter</button>
-            <button class="btn btn-secondary" (click)="mode='list'">Annuler</button>
-          </div>
-        </form>
-  
       </div>
     </div>
   

@@ -29,4 +29,8 @@ export class SidebarComponent implements OnInit {
         this.router.navigateByUrl(c.name + '/simplante');
     }
 
+    isAuthenticated() {
+        return this.authService.isAuthenticated();
+    }
+
 }
