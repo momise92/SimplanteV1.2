@@ -2,14 +2,14 @@ package com.simplante.web;
 
 
 import com.simplante.dto.UserRegistrationDto;
+import com.simplante.dto.mapper.PostMapper;
+import com.simplante.dto.mapper.RegistrationMapper;
 import com.simplante.dto.mapper.UserMapper;
 import com.simplante.model.UserApp;
-import com.simplante.service.CommentService;
 import com.simplante.service.UserAppService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,33 +21,33 @@ import javax.validation.Valid;
 public class UserAppController {
 
     private UserAppService userAppService;
+    private RegistrationMapper registrationMapper;
     private UserMapper userMapper;
+    private PostMapper postMapper;
 
 
-    /**
-     * @param userAppService
-     * @param userMapper
-     * @param commentService
-     */
-    public UserAppController(UserAppService userAppService, UserMapper userMapper, CommentService commentService) {
+    public UserAppController(UserAppService userAppService, RegistrationMapper registrationMapper, UserMapper userMapper, PostMapper postMapper) {
         this.userAppService = userAppService;
+        this.registrationMapper = registrationMapper;
         this.userMapper = userMapper;
+        this.postMapper = postMapper;
     }
 
 
     /**
-     * @return
+     * @return response entity status 200 and list of users on body
      */
     @GetMapping
     public ResponseEntity<?> listUsers() {
         log.debug("get All users");
-        return new ResponseEntity<>(userMapper.listusersToListRegistrationDto(userAppService.ListUsers()), HttpStatus.OK);
+        return new ResponseEntity<>(userMapper.listusersToListUserDto(userAppService.ListUsers()), HttpStatus.OK);
     }
 
 
     /**
-     * @param id
-     * @return
+     * @param id the id of user to show
+     * @return response entity status 404 if user is not found
+     * or status 200 if the user is found and the user on body
      */
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
@@ -65,8 +65,9 @@ public class UserAppController {
 
 
     /**
-     * @param id
-     * @return
+     * @param id the id of user to show his comments
+     * @return response entity status 404 if user is not found
+     *  or status 200 and the comments of user on body
      */
     @GetMapping("/{id}/comments")
     public ResponseEntity<?> getCommentsByUser(@PathVariable Long id) {
@@ -82,12 +83,13 @@ public class UserAppController {
     }
 
 
-    @GetMapping("/{username}/posts")
-    public ResponseEntity<?> getPostByUser(@PathVariable String username) {
+    /**
+     * @return response entity status 200 (ok) and the posts of the current user on body
+     */
+    @GetMapping("/posts")
+    public ResponseEntity<?> getPostByUser() {
         try {
-            if(username != SecurityContextHolder.getContext().getAuthentication().getPrincipal())
-                throw new Exception("Can't see they posts");
-            return ResponseEntity.ok(userAppService.getPostByCurrentUser(username));
+            return ResponseEntity.ok(postMapper.listPostsToListPostsDto(userAppService.getPostByCurrentUser()));
         } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -96,15 +98,17 @@ public class UserAppController {
 
 
     /**
-     * @param userRegistrationDto
-     * @return
+     * @param userRegistrationDto the body of user to create
+     * @return response entity status 409 if the id its on body, if the username already exist,
+     * status 403 if the password its not valid.
+     * or status 201 if user created and user on body.
      */
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody @Valid UserRegistrationDto userRegistrationDto) {
 
         try {
             if (userRegistrationDto.getId() != null)
-                return new ResponseEntity<Object>(new Exception("Please remove the Id"), HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<Object>(new Exception("Please remove the Id"), HttpStatus.CONFLICT);
 
             if (userAppService.findUserByUsername(userRegistrationDto.getUsername().toLowerCase()) != null)
                 return new ResponseEntity<Object>(new Exception("Username already exist"), HttpStatus.CONFLICT);
@@ -112,9 +116,9 @@ public class UserAppController {
             if (!userRegistrationDto.getPassword().equals(userRegistrationDto.getRePassword()))
                 return new ResponseEntity<Object>(new Exception("Please check your password"), HttpStatus.FORBIDDEN);
 
-            UserApp result = userAppService.createUser(userMapper.registrationDtoToUser(userRegistrationDto));
+            UserApp result = userAppService.createUser(registrationMapper.registrationDtoToUser(userRegistrationDto));
             /*userAppService.addRoleToUser(userRegistrationDto.getUsername(),"User");*/
-            return new ResponseEntity<>(userMapper.userToRegistrationDto(result), HttpStatus.CREATED);
+            return new ResponseEntity<>(registrationMapper.userToRegistrationDto(result), HttpStatus.CREATED);
 
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -124,9 +128,10 @@ public class UserAppController {
 
 
     /**
-     * @param id
-     * @param userRegistrationDto
-     * @return
+     * @param id the id of user to update
+     * @param userRegistrationDto the body of user to update
+     * @return response entity status 403 if user not exist
+     * or status 201 if user are updated
      */
     @PutMapping("/{id}")
     public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody @Valid UserRegistrationDto userRegistrationDto) {
@@ -134,21 +139,21 @@ public class UserAppController {
         try {
 
             if (userAppService.findById(id) == null)
-                return new ResponseEntity<>("This user not exist", HttpStatus.FORBIDDEN);
+                return new ResponseEntity<Object>(new Exception("This user not exist"), HttpStatus.FORBIDDEN);
             userRegistrationDto.setId(id);
-            UserApp result = userAppService.updateUser(userMapper.registrationDtoToUser(userRegistrationDto));
-            return new ResponseEntity<>(userMapper.userToRegistrationDto(result), HttpStatus.CREATED);
+            UserApp result = userAppService.updateUser(registrationMapper.registrationDtoToUser(userRegistrationDto));
+            return new ResponseEntity<>(registrationMapper.userToRegistrationDto(result), HttpStatus.CREATED);
 
         } catch (Exception e) {
             log.error(e.getMessage());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
 
     /**
-     * @param id
-     * @return
+     * @param id the id of user to delete
+     * @return response entity 200 if user are deleted
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {

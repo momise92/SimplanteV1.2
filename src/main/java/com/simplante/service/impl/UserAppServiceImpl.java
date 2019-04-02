@@ -10,7 +10,7 @@ import com.simplante.model.RoleApp;
 import com.simplante.model.UserApp;
 import com.simplante.service.UserAppService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,7 +78,7 @@ public class UserAppServiceImpl implements UserAppService {
             throw new Exception("USER_ID "+ userApp.getId()+" NOT_FOUND");
         }
         userApp.setLastName(userApp.getLastName());
-        userApp.setName(userApp.getName());
+        userApp.setFirstName(userApp.getFirstName());
         userApp.setEmail(userApp.getEmail());
         userApp.setUsername(userApp.getUsername());
         userApp.setIsActive(userApp.getIsActive());
@@ -110,7 +110,8 @@ public class UserAppServiceImpl implements UserAppService {
     }
 
     @Override
-    public List<Post> getPostByCurrentUser(String username) throws Exception {
+    public List<Post> getPostByCurrentUser() throws Exception {
+       String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserApp userApp = userAppRepository.findByUsername(username);
         if(userApp.getPosts().isEmpty()){
             log.error("Cannot find post for this user " + userApp.getUsername());

@@ -24,7 +24,7 @@ public interface UserAppService {
 
     List<Comment> getCommentByUser(UserApp userApp) throws Exception;
 
-    List<Post> getPostByCurrentUser(String username) throws Exception;
+    List<Post> getPostByCurrentUser() throws Exception;
 
 
 }

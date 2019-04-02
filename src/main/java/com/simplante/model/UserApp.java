@@ -40,18 +40,18 @@ public class UserApp {
 
     @Column(name = "username", nullable = false, unique = true)
     @Length(min = 4, max = 20, message = "*Your username must have at least 4 characters")
-    @NotEmpty(message = "*Please provide your name")
+    @NotEmpty(message = "*Please provide your username")
     private String username;
 
-    @NotEmpty(message = "*Please provide your name")
-    private String name;
+    @NotEmpty(message = "*Please provide your firstName")
+    private String firstName;
 
     @Column(name = "last_name")
-    @NotEmpty(message = "*Please provide your last name")
+    @NotEmpty(message = "*Please provide your last lastName")
     private String lastName;
 
     @Column(nullable = false)
-    private Boolean IsActive = true;
+    private Boolean isActive = true;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     @JsonIgnore
@@ -68,11 +68,11 @@ public class UserApp {
 
     }
 
-    public UserApp(String email, String password, String username, String name, String lastName) {
+    public UserApp(String email, String password, String username, String firstName, String lastName) {
         this.email = email;
         this.password = password;
         this.username = username;
-        this.name = name;
+        this.firstName = firstName;
         this.lastName = lastName;
     }
 
@@ -148,12 +148,12 @@ public class UserApp {
         this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -165,11 +165,11 @@ public class UserApp {
     }
 
     public Boolean getIsActive() {
-        return IsActive;
+        return isActive;
     }
 
     public void setIsActive(Boolean isActive) {
-        this.IsActive = isActive;
+        this.isActive = isActive;
     }
 
     public Set<Post> getPosts() {
@@ -194,5 +194,16 @@ public class UserApp {
 
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserApp )) return false;
+        return id != null && id.equals(((UserApp) o).getId());
+    }
+    @Override
+    public int hashCode() {
+        return 31;
     }
 }
