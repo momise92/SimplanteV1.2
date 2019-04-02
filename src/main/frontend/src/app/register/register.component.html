@@ -8,15 +8,15 @@
     <form #userForm="ngForm" (ngSubmit)="saveUser()">
       <div class="form-group input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          <span class="input-group-text"> <i class="fa fa-user"></i></span>
         </div>
-        <input name="name" [(ngModel)]="user.name" class="form-control" placeholder="Nom" type="text" required>
+        <input name="lastName" [(ngModel)]="user.lastName" class="form-control" placeholder="Nom" type="text" required>
       </div>
       <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-user"></i> </span>
         </div>
-        <input name="lastname" [(ngModel)]="user.lastName" class="form-control" placeholder="Prénom" type="text" required>
+        <input name="firstName" [(ngModel)]="user.firstName" class="form-control" placeholder="Prénom" type="text" required>
       </div>
       <div class="form-group input-group">
           <div class="input-group-prepend">
@@ -25,28 +25,28 @@
           <input name="username" [(ngModel)]="user.username" class="form-control" placeholder="Pseudo" type="text" required>
         </div>
 
-      <!-- form-group// -->
       <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
         </div>
-        <input name="email" [(ngModel)]="user.email" class="form-control" placeholder="Email address" type="email" required>
-      </div> <!-- form-group// -->
+        <input name="email" [(ngModel)]="user.email" class="form-control" placeholder="Email" type="email" required>
+      </div>
+
       <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
         <input name="password" [(ngModel)]="user.password" class="form-control" placeholder="Mot de passe" type="password" required>
-      </div> <!-- form-group// -->
+      </div>
       <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
-        <input name="rePassword" [(ngModel)]="user.rePassword" class="form-control" placeholder="confirmer mot de passe" type="password" required>
-      </div> <!-- form-group// -->
+        <input name="rePassword" [(ngModel)]="user.rePassword" class="form-control" placeholder="Confirmer mot de passe" type="password" required>
+      </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
-      </div> <!-- form-group// -->
+      </div>
       <p class="text-center"> Déjà un compte ?<a routerLink='/login'>Se Connecter</a></p>
     </form>
   </article>

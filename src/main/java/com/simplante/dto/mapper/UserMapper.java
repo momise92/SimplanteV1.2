@@ -1,6 +1,6 @@
 package com.simplante.dto.mapper;
 
-import com.simplante.dto.UserRegistrationDto;
+import com.simplante.dto.UserDto;
 import com.simplante.model.UserApp;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +15,15 @@ public class UserMapper {
     @Autowired
     ModelMapper modelMapper;
 
-    public UserApp registrationDtoToUser(UserRegistrationDto dto) {
+    public UserApp userDtoToUser(UserDto dto) {
         return modelMapper.map(dto, UserApp.class);
     }
 
-    public UserRegistrationDto userToRegistrationDto(UserApp entity) {
-        return modelMapper.map(entity, UserRegistrationDto.class);
+    public UserDto userToUserDto(UserApp entity) {
+        return modelMapper.map(entity, UserDto.class);
     }
 
-    public List<UserRegistrationDto> listusersToListRegistrationDto(List<UserApp> users) {
-        return users.stream().map(userApp -> userToRegistrationDto(userApp)).collect(Collectors.toList());
+    public List<UserDto> listusersToListUserDto(List<UserApp> users) {
+        return users.stream().map(userApp -> userToUserDto(userApp)).collect(Collectors.toList());
     }
 }

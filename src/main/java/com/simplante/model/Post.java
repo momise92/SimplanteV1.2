@@ -1,5 +1,6 @@
 package com.simplante.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -23,8 +24,7 @@ public class Post {
     @Length(min = 5, max = 100, message = "*Your title must have at least 5 characters")
     private String title;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, columnDefinition = "TEXT", length = 320)
     private String body;
 
 
@@ -52,6 +52,7 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryId")
+    @JsonIgnore
     private Category category;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -182,15 +183,10 @@ public class Post {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-
-        if (!(o instanceof Post))
-            return false;
-
-        return id != null && id.equals(((Post) o).id);
+        if (this == o) return true;
+        if (!(o instanceof Post )) return false;
+        return id != null && id.equals(((Post) o).getId());
     }
-
     @Override
     public int hashCode() {
         return 31;

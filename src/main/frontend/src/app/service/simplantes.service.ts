@@ -32,8 +32,8 @@ export class SimplantesService {
     //         ));
     // }
 
-    getSimplanteByUser(username: string): Observable<Simplante> {
-        return this.http.get<Simplante>(`this.API_URL + ${username}/posts`);
+    getSimplanteByUser(): Observable<Simplante> {
+        return this.http.get<Simplante>(this.API_URL + '/users/posts');
     }
 
 

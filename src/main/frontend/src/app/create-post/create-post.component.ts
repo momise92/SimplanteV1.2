@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../service/authentication.service';
 import {Component, OnInit} from '@angular/core';
 import {Simplante} from '../model/model.simplante';
 import {SimplantesService} from '../service/simplantes.service';
@@ -14,11 +15,18 @@ export class CreatePostComponent implements OnInit {
     categories: any;
 
 
-    constructor(private simplantesService: SimplantesService, private catService: CategoryService, private router: Router) {
+    constructor(private simplantesService: SimplantesService,
+         private catService: CategoryService,
+          private router: Router,
+          private authService: AuthenticationService) {
     }
 
     ngOnInit() {
         this.getCategories();
+    }
+
+    isAuthenticated() {
+        return this.authService.isAuthenticated();
     }
 
     saveSimplante() {

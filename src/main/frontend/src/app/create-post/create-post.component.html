@@ -1,17 +1,20 @@
 <!--- \\\\\\\Post-->
-<div class="card gedf-card">
+<div class="text-primary mb-5" *ngIf="!isAuthenticated()">
+    <h2>Les Simplantes:</h2>
+</div>
+<div class="card gedf-card" *ngIf="isAuthenticated()">
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a aria-controls="posts" aria-selected="true" class="nav-link active" data-toggle="tab" href="#posts"
                    id="posts-tab"
-                   role="tab">Make
+                   ="tab">Make
                     a publication</a>
             </li>
             <li class="nav-item">
                 <a aria-controls="images" aria-selected="false" class="nav-link" data-toggle="tab" href="#images"
                    id="images-tab"
-                   role="tab">Images</a>
+                   ="tab">Images</a>
             </li>
         </ul>
     </div>
@@ -28,7 +31,7 @@
                     <div class="form-group">
                         <label class="sr-only" for="post">post</label>
                         <textarea #body="ngModel" [(ngModel)]="simplante.body" class="form-control" id="message"
-                                  name="body" placeholder="Laissez-nous savoir ce que vous pensez. " required
+                        name="body" placeholder="Laissez-nous savoir ce que vous pensez. " required
                                   rows="3"></textarea>
                     </div>
 

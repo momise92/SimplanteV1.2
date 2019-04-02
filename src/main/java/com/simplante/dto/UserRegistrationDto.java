@@ -21,13 +21,13 @@ public class UserRegistrationDto {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String rePassword;
 
-    @NotEmpty(message = "*Please provide your name")
+    @NotEmpty(message = "*Please provide your firstName")
     private String username;
 
-    @NotEmpty(message = "*Please provide your name")
-    private String name;
+    @NotEmpty(message = "*Please provide your firstName")
+    private String firstName;
 
-    @NotEmpty(message = "*Please provide your last name")
+    @NotEmpty(message = "*Please provide your last firstName")
     private String lastName;
 
     private LocalDateTime registerDate;
@@ -72,12 +72,12 @@ public class UserRegistrationDto {
         this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
