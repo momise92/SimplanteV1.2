@@ -9,7 +9,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-user"></i></span>
         </div>
-        <input name="username" ngModel required  class="form-control" placeholder="Pseudo" type="text">
+        <input name="username" ngModel oninput="this.value = this.value.toLowerCase()" required  class="form-control" placeholder="Pseudo" type="text">
       </div>
       <!-- form-group// -->
       <div class="form-group input-group">
