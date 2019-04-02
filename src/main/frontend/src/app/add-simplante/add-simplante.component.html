@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label for="contenu">Texte</label>
                     <textarea #contenu="ngModel" [(ngModel)]="simplante.body" class="form-control" maxlength="280"
-                              name="contenu"
+                    name="contenu"
                               required></textarea>
                     <div [hidden]="contenu.valid || contenu.pristine" class="alert alert-danger">
                         Contenu requis
