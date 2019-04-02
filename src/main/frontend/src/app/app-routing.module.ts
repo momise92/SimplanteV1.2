@@ -1,3 +1,5 @@
+import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
+import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { AdminSimplantesComponent } from './admin-dashboard/admin-simplantes/admin-simplantes.component';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +23,7 @@ const routes: Routes = [
         {
             path: 'category/:id/simplante',
             component: SimplantesByCategorieComponent
+
         },
         {
             path: 'simplante/:id',
@@ -28,12 +31,29 @@ const routes: Routes = [
         },
     ]
     },
+
     {path: 'ajouter-simplante', component: AddSimplanteComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'adminCategories', component: AdminCategoriesComponent},
-    {path: 'adminSimplantes', component: AdminSimplantesComponent},
+
+    {
+        path: 'adminCategories', component: AdminCategoriesComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'adminSimplantes', component: AdminSimplantesComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'adminUsers', component: AdminUsersComponent,
+        canActivate: [AuthGuard]
+    },
     {path: 'inscription', component: RegisterComponent},
-    {path: 'user/:username/simplante', component: UserSimplantesComponent},
+
+    {
+        path: 'user/:username/simplante', component: UserSimplantesComponent,
+        canActivate: [AuthGuard]
+    },
+
     { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
