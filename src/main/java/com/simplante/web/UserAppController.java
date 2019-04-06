@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 @RestController
 @RequestMapping("/api/users")
 @Slf4j

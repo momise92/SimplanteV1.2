@@ -4,6 +4,10 @@ import com.simplante.model.Comment;
 
 import java.util.List;
 
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 public interface CommentService {
 
     List<Comment> ListComments();

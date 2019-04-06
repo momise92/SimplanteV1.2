@@ -18,18 +18,15 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class RepositoryTest {
 
-
     @Autowired
     private CategoryRepository categoryRepository;
-
     @Autowired
     private PostRepository postRepository;
-
     @Autowired
     private CommentRepository commentRepository;
 
 
-    /*@Test
+    @Test
     public void TestCategory() {
         Category c = new Category("comique");
         c.addPost(new Post("Title", "Somebody test category"));
@@ -38,7 +35,7 @@ public class RepositoryTest {
         assertNotNull(postRepository.findByCategoryId(1L));
 
 
-    }*/
+    }
 
     @Test
     public void TestPost() {

@@ -6,6 +6,10 @@ import com.simplante.model.Post;
 
 import java.util.List;
 
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 public interface PostService {
 
     List<Post> listPost();

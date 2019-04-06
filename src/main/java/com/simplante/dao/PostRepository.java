@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 /**
- *
+ * @author Moïse Coulanges
+ * @version 0.1
  */
 public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findAllByOrderByCreateDateDesc();

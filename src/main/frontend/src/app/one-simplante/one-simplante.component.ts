@@ -12,7 +12,7 @@ import {switchMap} from 'rxjs/operators';
     styleUrls: ['./one-simplante.component.css']
 })
 export class OneSimplanteComponent implements OnInit {
-    simplante$: Observable<Simplante>;
+    simplante: Observable<Simplante>;
 
     constructor(
         private route: ActivatedRoute,
@@ -22,11 +22,13 @@ export class OneSimplanteComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.simplante$ = this.route.paramMap.pipe(
-            switchMap((params: ParamMap) =>
-                this.simplanteService.getSimplante(params.get('id'))
-            )
-        );
+        this.GetSimplante();
+    }
+
+    GetSimplante() {
+        const id = +this.route.snapshot.paramMap.get('id');
+        this.simplanteService.getSimplante(id)
+      .subscribe(data => {this.simplante = data; console.log(data); });
     }
 
     goBack(): void {

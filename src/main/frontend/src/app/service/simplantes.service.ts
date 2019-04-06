@@ -16,19 +16,15 @@ export class SimplantesService {
     constructor(
         private http: HttpClient) { }
 
-    getSimplante(id: number | string) {
-        return this.getAllSimplantes().pipe(
-            // (+) before `id` turns the string into a number
-            map((simplantes: Simplante[]) =>
-                simplantes.find(simplante => simplante.id === +id)
-            ));
-    }
+        getSimplante(id: number): Observable<any> {
+            return this.http.get(`${this.API_URL}/posts/${id}`);
+        }
 
-    // getSimplanteByUser(username: string) {
+    // getSimplante(id: number | string) {
     //     return this.getAllSimplantes().pipe(
     //         // (+) before `id` turns the string into a number
     //         map((simplantes: Simplante[]) =>
-    //             simplantes.find(simplante => simplante.userUsername === username)
+    //             simplantes.find(simplante => simplante.id === +id)
     //         ));
     // }
 

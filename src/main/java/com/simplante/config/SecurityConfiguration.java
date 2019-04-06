@@ -71,7 +71,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/login/**", "/api/users/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/posts", "/api/categories/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/posts/**", "/api/categories/**").permitAll()
                 .antMatchers("/api/categories/**").hasAuthority("ADMIN")
                 .antMatchers("/api/**").authenticated().and()
                 .addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
@@ -79,17 +79,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .addFilter(new JWTAuthentificationFilter(authenticationManager()))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
-
-/*     @Bean
-     CorsConfigurationSource corsConfigurationSource() {
-     CorsConfiguration configuration = new CorsConfiguration();
-     configuration.setAllowedOrigins(Arrays.asList("*","http://localhost:4200"));
-     configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "DELETE", "PUT", "PATCH"));
-     configuration.setAllowedHeaders(Arrays.asList("Access-Control-Allow-Origin","X-Requested-With", "Origin", "Content-Type", "Accept", "Authorization"));
-     configuration.setAllowCredentials(true);
-     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-     source.registerCorsConfiguration("/**", configuration);
-     return source;
-     }*/
 
 }

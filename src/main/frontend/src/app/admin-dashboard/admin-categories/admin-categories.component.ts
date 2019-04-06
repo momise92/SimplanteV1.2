@@ -23,15 +23,13 @@ export class AdminCategoriesComponent implements OnInit {
 
     loadCategories() {
       this.categoryService.getCategories()
-      .subscribe(data => {this.categories = data;
-      console.log(data); },
+      .subscribe(data => {this.categories = data; },
         err => {console.log(err); });
     }
 
     GetCategorybyId(id: number) {
       this.mode = 'edit-cat';
-      console.log(id);
-      this.categoryService.getCategory(id).subscribe(data => {this.currentCategory = data; console.log(data); },
+      this.categoryService.getCategory(id).subscribe(data => {this.currentCategory = data; },
         err => {console.log(err); });
     }
 

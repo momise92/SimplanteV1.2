@@ -4,10 +4,10 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="mr-2">
-                    <img class="rounded-circle" width="45" src="../../assets/img/avatars/profil.png" alt="">
+                    <img class="rounded-circle" width="45" src="../../assets/img/avatars/profil.png" alt="profil">
                 </div>
                 <div class="ml-2">
-                    <div class="h5 m-0">{{'@' + s.userUsername}}</div>
+                    <div class="h5 m-0">{{s.userUsername}}</div>
                     <div class="h7 small">Name Lastame</div>
                 </div>
             </div>
@@ -19,9 +19,8 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                         <div class="h6 dropdown-header">Configuration</div>
-                        <a class="dropdown-item" href="#">Save</a>
-                        <a class="dropdown-item" href="#">Hide</a>
-                        <a class="dropdown-item" href="#">Report</a>
+                        <a class="dropdown-item" href="#">Sauvegarder</a>
+                        <a class="dropdown-item" href="#">Signaler</a>
                     </div>
                 </div>
             </div>
@@ -38,6 +37,6 @@
     </div>
     <div class="card-footer">
         <a href="#" class="card-link"><i class="fab fa-gratipay"></i> Like</a>
-        <a href="#" class="card-link"><i class="fas fa-comment"></i> Comment</a>
+        <a [routerLink]="['/simplante', s.id]" class="card-link"><i class="fas fa-comment"></i> Commentaires</a>
     </div>
 </div>

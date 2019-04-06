@@ -1,14 +1,13 @@
-<main>
-    <section>
-        <div *ngIf="simplante$ | async as simplante" class="card gedf-card">
+    <section *ngIf="simplante">
+        <div class="card gedf-card">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="mr-2">
-                            <img alt="" class="rounded-circle" src="https://picsum.photos/50/50" width="45">
+                            <img alt="" class="rounded-circle" src="../../assets/img/avatars/profil.png" width="45">
                         </div>
                         <div class="ml-2">
-                            <div class="h5 m-0">{{simplante.userUsername}}</div>
+                            <div class="h5 m-0">{{simplante.user.username}}</div>
                             <div class="h7 text-muted">Name Lastname</div>
                         </div>
                     </div>
@@ -21,9 +20,8 @@
                             </button>
                             <div aria-labelledby="gedf-drop1" class="dropdown-menu dropdown-menu-right">
                                 <div class="h6 dropdown-header">Configuration</div>
-                                <a class="dropdown-item" href="#">Save</a>
-                                <a class="dropdown-item" href="#">Hide</a>
-                                <a class="dropdown-item" href="#">Report</a>
+                                <a class="dropdown-item" href="#">Sauvegarder</a>
+                                <a class="dropdown-item" href="#">Signaler</a>
                             </div>
                         </div>
                     </div>
@@ -37,10 +35,10 @@
             </div>
             <div class="card-footer">
                 <a class="card-link" href="#"><i class="fab fa-gratipay"></i> Like</a>
-                <a class="card-link" href="#"><i class="fa fa-comment"></i> Comment</a>
+                <a class="card-link" href="#"><i class="fa fa-comment"></i> Commentaires</a>
             </div>
         </div>
-        <a (click)="goBack()" class="btn btn-primary text-white btn-sm" role="button"
+    
+           <a (click)="goBack()" class="btn btn-primary text-white btn-sm" role="button"
            style="cursor: pointer;">Retour</a>
-    </section>
-</main>
+            </section>

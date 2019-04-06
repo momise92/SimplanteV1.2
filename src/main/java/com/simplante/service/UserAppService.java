@@ -7,7 +7,12 @@ import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
+/**
+ * @author Moïse Coulanges
+ * @version 0.1
+ */
 public interface UserAppService {
+
     List<UserApp> ListUsers();
 
     UserApp findById(Long id) throws Exception;
@@ -25,6 +30,5 @@ public interface UserAppService {
     List<Comment> getCommentByUser(UserApp userApp) throws Exception;
 
     List<Post> getPostByCurrentUser() throws Exception;
-
 
 }

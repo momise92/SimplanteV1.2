@@ -22,6 +22,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 public class UserAppServiceImpl implements UserAppService {
+
     private UserAppRepository userAppRepository;
     private RoleAppRepository roleAppRepository;
     private CommentRepository commentRepository;
