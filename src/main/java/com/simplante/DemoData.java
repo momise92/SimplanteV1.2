@@ -1,12 +1,12 @@
 package com.simplante;
 
 import com.simplante.dao.*;
-import com.simplante.model.*;
-import com.simplante.service.PostService;
-import com.simplante.service.UserAppService;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
+        import com.simplante.model.*;
+        import com.simplante.service.PostService;
+        import com.simplante.service.UserAppService;
+        import org.springframework.boot.ApplicationArguments;
+        import org.springframework.boot.ApplicationRunner;
+        import org.springframework.stereotype.Component;
 
 @Component
 public class DemoData implements ApplicationRunner {
@@ -31,7 +31,7 @@ public class DemoData implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        Category category1 = new Category();
+       /* Category category1 = new Category();
         category1.setName("Drôle");
         categoryRepository.save(category1);
 
@@ -68,5 +68,5 @@ public class DemoData implements ApplicationRunner {
 
         userAppService.addRoleToUser("admin", "ADMIN");
 
-    }
-}
+    }*/
+}}

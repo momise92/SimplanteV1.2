@@ -54,6 +54,13 @@ public class UserAppServiceImpl implements UserAppService {
 
     }
 
+    @Override
+    public UserApp currentUser() {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return userAppRepository.findByUsername(username);
+    }
+
+
     @Transactional
     @Override
     public UserApp createUser(UserApp userApp) throws Exception {
@@ -63,7 +70,6 @@ public class UserAppServiceImpl implements UserAppService {
             throw new Exception("Email already exist");
         if (userApp.getRegisterDate() == null)
             userApp.setRegisterDate(LocalDateTime.now());
-        /*userApp.setIsActive(true);*/
         userApp.setUsername(userApp.getUsername().toLowerCase());
         userApp.setPassword(passwordEncoder.encode(userApp.getPassword()));
         userApp.getRoles().add(roleAppRepository.findByRole("USER"));
@@ -78,11 +84,8 @@ public class UserAppServiceImpl implements UserAppService {
             log.error("Cannot update user" + userApp + " it's not present");
             throw new Exception("USER_ID "+ userApp.getId()+" NOT_FOUND");
         }
-        userApp.setLastName(userApp.getLastName());
-        userApp.setFirstName(userApp.getFirstName());
-        userApp.setEmail(userApp.getEmail());
-        userApp.setUsername(userApp.getUsername());
-        userApp.setIsActive(userApp.getIsActive());
+        userApp.setRegisterDate(result.get().getRegisterDate());
+        userApp.setPassword(result.get().getPassword());
         return userAppRepository.save(userApp);
     }
 
@@ -116,7 +119,7 @@ public class UserAppServiceImpl implements UserAppService {
         UserApp userApp = userAppRepository.findByUsername(username);
         if(userApp.getPosts().isEmpty()){
             log.error("Cannot find post for this user " + userApp.getUsername());
-        throw new Exception("Post not found for this " + userApp.getUsername());
+        throw new Exception("Post not found for this user " + userApp.getUsername());
         }
         return postRepository.findByUser(userApp);
     }

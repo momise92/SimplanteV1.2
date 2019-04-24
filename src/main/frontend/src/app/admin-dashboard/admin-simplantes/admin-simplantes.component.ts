@@ -22,7 +22,7 @@ export class AdminSimplantesComponent implements OnInit {
 
   loadSimplante() {
     this.simplantesService.getAllSimplantes().subscribe(
-      data => {this.simplantes = data; },
+      data => {this.simplantes = data; console.log(data); },
       err => {console.log(err); });
   }
 

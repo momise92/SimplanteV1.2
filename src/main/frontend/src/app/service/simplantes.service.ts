@@ -16,8 +16,8 @@ export class SimplantesService {
     constructor(
         private http: HttpClient) { }
 
-        getSimplante(id: number): Observable<any> {
-            return this.http.get(`${this.API_URL}/posts/${id}`);
+        getSimplante(id: number): Observable<Simplante> {
+            return this.http.get<Simplante>(`${this.API_URL}/posts/${id}`);
         }
 
     // getSimplante(id: number | string) {
@@ -28,8 +28,8 @@ export class SimplantesService {
     //         ));
     // }
 
-    getSimplanteByUser(): Observable<Simplante> {
-        return this.http.get<Simplante>(this.API_URL + '/users/posts');
+    getSimplanteByUser(): Observable<Simplante[]> {
+        return this.http.get<Simplante[]>(this.API_URL + '/users/posts');
     }
 
 

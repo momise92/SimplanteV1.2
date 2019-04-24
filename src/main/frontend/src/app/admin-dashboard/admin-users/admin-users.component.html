@@ -114,6 +114,7 @@
             <th>Nom</th>
             <th>Prénom</th>
             <th>Enregister le</th>
+            <th>Roles</th>
           </tr>
         </thead>
         <tbody>
@@ -141,6 +142,9 @@
             <td>
               {{user.registerDate | date:'dd/MM/y à HH:mm'}}
             </td>
+            <td *ngFor="let role of user.roles">
+                {{role.role}}
+              </td>
           </tr>
         </tbody>
       </table>

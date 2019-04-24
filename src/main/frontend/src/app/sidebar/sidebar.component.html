@@ -1,10 +1,10 @@
-<div class="card ">
-    <div class="card-body" *ngIf="isAuthenticated()">
-        <div class="h5">@{{user()}}</div>
-        <div class="h7 text-muted">Fullname : Miracles Lee Cross</div>
+<div class="card" *ngIf="isAuthenticated()">
+    <div class="card-body" *ngIf="currentUser" >
+        <div class="h5">@{{currentUser.username}}</div>
+        <div class="h7 text-muted"> Nom Complet: {{currentUser.firstName}} {{currentUser.lastName}} </div>
     </div>
 </div>
-<hr>
+<br>
 <h4>Categories</h4>
 <hr>
 <div class="card">

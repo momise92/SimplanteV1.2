@@ -22,6 +22,7 @@ import { AdminCommentsComponent } from './admin-dashboard/admin-comments/admin-c
 import { RegisterComponent } from './register/register.component';
 import { AuthInterceptor } from './auth-interceptor';
 import { UserSimplantesComponent } from './user-dashboard/user-simplantes/user-simplantes.component';
+import { UserSettingsComponent } from './user-dashboard/user-settings/user-settings.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { UserSimplantesComponent } from './user-dashboard/user-simplantes/user-s
         AdminSimplantesComponent,
         AdminCommentsComponent,
         RegisterComponent,
-        UserSimplantesComponent
+        UserSimplantesComponent,
+        UserSettingsComponent
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
     providers: [

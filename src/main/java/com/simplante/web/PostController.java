@@ -2,6 +2,7 @@ package com.simplante.web;
 
 import com.simplante.dto.PostDto;
 import com.simplante.dto.mapper.CategoryMapper;
+import com.simplante.dto.mapper.ObjectMapperUtils;
 import com.simplante.dto.mapper.PostMapper;
 import com.simplante.model.Post;
 import com.simplante.service.CategoryService;
@@ -57,7 +58,7 @@ public class PostController {
     @GetMapping
     public ResponseEntity<?> listAllPostsOrderByDateDesc() {
         log.debug("get list All Posts Order By Date Desc");
-        return new ResponseEntity<>(postMapper.listPostsToListPostsDto(postService.listPostOrderByCreateDateDesc()),
+        return new ResponseEntity<>(ObjectMapperUtils.mapAll(postService.listPostOrderByCreateDateDesc(), PostDto.class),
                 HttpStatus.OK);
     }
 

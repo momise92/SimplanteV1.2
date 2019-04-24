@@ -1,10 +1,14 @@
 package com.simplante.web;
 
 
+import com.simplante.dto.PostDto;
+import com.simplante.dto.UserDto;
 import com.simplante.dto.UserRegistrationDto;
+import com.simplante.dto.mapper.ObjectMapperUtils;
 import com.simplante.dto.mapper.PostMapper;
 import com.simplante.dto.mapper.RegistrationMapper;
 import com.simplante.dto.mapper.UserMapper;
+import com.simplante.model.Post;
 import com.simplante.model.UserApp;
 import com.simplante.service.UserAppService;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author Moïse Coulanges
@@ -24,16 +29,10 @@ import javax.validation.Valid;
 public class UserAppController {
 
     private UserAppService userAppService;
-    private RegistrationMapper registrationMapper;
-    private UserMapper userMapper;
-    private PostMapper postMapper;
 
 
-    public UserAppController(UserAppService userAppService, RegistrationMapper registrationMapper, UserMapper userMapper, PostMapper postMapper) {
+    public UserAppController(UserAppService userAppService) {
         this.userAppService = userAppService;
-        this.registrationMapper = registrationMapper;
-        this.userMapper = userMapper;
-        this.postMapper = postMapper;
     }
 
 
@@ -43,7 +42,7 @@ public class UserAppController {
     @GetMapping
     public ResponseEntity<?> listUsers() {
         log.debug("get All users");
-        return new ResponseEntity<>(userMapper.listusersToListUserDto(userAppService.ListUsers()), HttpStatus.OK);
+        return new ResponseEntity<>(ObjectMapperUtils.mapAll(userAppService.ListUsers(), UserDto.class), HttpStatus.OK);
     }
 
 
@@ -61,9 +60,19 @@ public class UserAppController {
             log.debug("Get user by ID");
             return new ResponseEntity<>(userAppService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
-            log.error("Find user by id : ", e.getMessage());
+            log.error("Find user by id : {}", e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
+
+
+    /**
+     * @return response entity status 200 and the current users on body
+     */
+    @GetMapping("/current")
+    public ResponseEntity<?> getCurrentUser() {
+        log.debug("get Current users");
+        return new ResponseEntity<>(ObjectMapperUtils.map(userAppService.currentUser(),UserDto.class), HttpStatus.OK);
     }
 
 
@@ -87,12 +96,12 @@ public class UserAppController {
 
 
     /**
-     * @return response entity status 200 (ok) and the posts of the current user on body
+     * @return response entity status 200 (ok) and the current user's post on body
      */
     @GetMapping("/posts")
     public ResponseEntity<?> getPostByUser() {
         try {
-            return ResponseEntity.ok(postMapper.listPostsToListPostsDto(userAppService.getPostByCurrentUser()));
+            return ResponseEntity.ok(ObjectMapperUtils.mapAll(userAppService.getPostByCurrentUser(), PostDto.class));
         } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -119,9 +128,8 @@ public class UserAppController {
             if (!userRegistrationDto.getPassword().equals(userRegistrationDto.getRePassword()))
                 return new ResponseEntity<Object>(new Exception("Please check your password"), HttpStatus.FORBIDDEN);
 
-            UserApp result = userAppService.createUser(registrationMapper.registrationDtoToUser(userRegistrationDto));
-            /*userAppService.addRoleToUser(userRegistrationDto.getUsername(),"User");*/
-            return new ResponseEntity<>(registrationMapper.userToRegistrationDto(result), HttpStatus.CREATED);
+            UserApp result = userAppService.createUser(ObjectMapperUtils.map(userRegistrationDto,UserApp.class));
+            return new ResponseEntity<>(ObjectMapperUtils.map(result, userRegistrationDto), HttpStatus.CREATED);
 
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -132,20 +140,20 @@ public class UserAppController {
 
     /**
      * @param id the id of user to update
-     * @param userRegistrationDto the body of user to update
+     * @param userDto the body of user to update
      * @return response entity status 403 if user not exist
      * or status 201 if user are updated
      */
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody @Valid UserRegistrationDto userRegistrationDto) {
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
 
         try {
 
             if (userAppService.findById(id) == null)
                 return new ResponseEntity<Object>(new Exception("This user not exist"), HttpStatus.FORBIDDEN);
-            userRegistrationDto.setId(id);
-            UserApp result = userAppService.updateUser(registrationMapper.registrationDtoToUser(userRegistrationDto));
-            return new ResponseEntity<>(registrationMapper.userToRegistrationDto(result), HttpStatus.CREATED);
+            userDto.setId(id);
+            UserApp result = userAppService.updateUser(ObjectMapperUtils.map(userDto, UserApp.class));
+            return new ResponseEntity<>(ObjectMapperUtils.map(result, userDto), HttpStatus.CREATED);
 
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -166,7 +174,7 @@ public class UserAppController {
             userAppService.deleteUser(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
-            log.error("delete post :", e.getMessage());
+            log.error("delete post : {}", e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
 

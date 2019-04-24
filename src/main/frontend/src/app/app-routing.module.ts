@@ -12,6 +12,7 @@ import {AddSimplanteComponent} from './add-simplante/add-simplante.component';
 import { AdminCategoriesComponent } from './admin-dashboard/admin-categories/admin-categories.component';
 import { HomeComponent } from './home/home.component';
 import { UserSimplantesComponent } from './user-dashboard/user-simplantes/user-simplantes.component';
+import { UserSettingsComponent } from './user-dashboard/user-settings/user-settings.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent,
@@ -51,6 +52,10 @@ const routes: Routes = [
 
     {
         path: 'user/:username/simplante', component: UserSimplantesComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'settings', component: UserSettingsComponent,
         canActivate: [AuthGuard]
     },
 

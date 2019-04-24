@@ -17,7 +17,7 @@ import { switchMap } from 'rxjs/operators';
 export class UserSimplantesComponent implements OnInit {
 
 
-  public simplantes: Simplante;
+  public simplantes: Simplante[];
   public categories: Category;
   public mode = 'list';
   public currentSimplante = {} as Simplante;
@@ -32,13 +32,8 @@ export class UserSimplantesComponent implements OnInit {
 
   loadSimplante() {
     this.simplantesService.getSimplanteByUser().subscribe(
-      data => {
-          this.simplantes = data;
-      },
-      error => {
-          console.log(error);
-      }
-  );
+      data => {this.simplantes = data; console.log(data); },
+      error => {console.log(error); });
       }
 
   GetSimplanteId(id: number) {

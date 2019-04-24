@@ -21,7 +21,7 @@
                     
                     <!--Menu profil-->
                     <li class="nav-item dropdown" *ngIf="isAuthenticated()" >
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" roles="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="profile-picture" class="profil" height="24"
                             src="../../assets/img/avatars/profil.png" style="border-radius: 50%; margin-right:5px"
                             width="24">{{user()}}<span class="sr-only"></span></a>
@@ -32,7 +32,7 @@
                             <a *ngIf="isAdmin()" class="dropdown-item" routerLink='/adminUsers'>Gestion des Utilisateurs</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" href="#">Gestion des Commentaires</a>
                             <a *ngIf="isAdmin()" class="dropdown-item" routerLink='/adminCategories'>Gestion des Catégories</a>
-                            <a class="dropdown-item" href="#">Paramètres</a>
+                            <a class="dropdown-item" routerLink='/settings'>Paramètres</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href='' (click)="logout()">Déconnexion</a>
                         </div>
@@ -65,13 +65,13 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item" role="home"><a class="nav-link" routerLinkActive="isActive" routerLink="/">Home</a></li>
-            <li class="nav-item" role="simplante"><a class="nav-link" routerLinkActive="isActive" routerLink='/simplante'>Les
+            <li class="nav-item" roles="home"><a class="nav-link" routerLinkActive="isActive" routerLink="/">Home</a></li>
+            <li class="nav-item" roles="simplante"><a class="nav-link" routerLinkActive="isActive" routerLink='/simplante'>Les
                 Simplantes</a></li>
-            <li class="nav-item" role="ajouterSimplante"><a class="nav-link" routerLinkActive="isActive" routerLink='/ajouter-simplante'>Ajouter
+            <li class="nav-item" roles="ajouterSimplante"><a class="nav-link" routerLinkActive="isActive" routerLink='/ajouter-simplante'>Ajouter
                 Simplantes</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" roles="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Admin
               </a>
@@ -88,11 +88,11 @@
           </ul>
           <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" roles="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Login</a>
                   <ul class="dropdown-menu dropdown-menu-right mt-2">
                      <li class="px-3 py-2">
-                         <form class="form" role="form">
+                         <form class="form" roles="form">
                               <div class="form-group">
                                   <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" required="">
                               </div>

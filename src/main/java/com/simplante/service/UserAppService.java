@@ -31,4 +31,6 @@ public interface UserAppService {
 
     List<Post> getPostByCurrentUser() throws Exception;
 
+    UserApp currentUser();
+
 }

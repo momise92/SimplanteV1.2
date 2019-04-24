@@ -70,6 +70,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable().authorizeRequests()
+                .antMatchers("/", "/csrf","/v2/api-docs", "/swagger-resources/configuration/ui", "/swagger-resources",
+                        "/swagger-resources/configuration/security", "/swagger-ui.html","/webjars/**","/css/**","/js/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/login/**", "/api/users/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/posts/**", "/api/categories/**").permitAll()
                 .antMatchers("/api/categories/**").hasAuthority("ADMIN")

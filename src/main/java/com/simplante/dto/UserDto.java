@@ -1,43 +1,29 @@
 package com.simplante.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.simplante.model.RoleApp;
-import org.hibernate.validator.constraints.Length;
-
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserDto {
 
     private Long id;
 
-    @Email(message = "*Please provide a valid Email")
     private String email;
 
-    @Length(min = 5, message = "*Your password must have at least 5 characters")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private String password;
+/*    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;*/
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private String rePassword;
-
-    @NotEmpty(message = "*Please provide your firstName")
     private String username;
 
-    @NotEmpty(message = "*Please provide your firstName")
     private String firstName;
 
-    @NotEmpty(message = "*Please provide your last firstName")
     private String lastName;
 
     private LocalDateTime registerDate;
 
     private Boolean isActive;
 
-
-    private List<RoleApp> roles;
+    private Set<RoleDto> roles = new HashSet<>();
 
 
     public Long getId() {
@@ -54,22 +40,6 @@ public class UserDto {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRePassword() {
-        return rePassword;
-    }
-
-    public void setRePassword(String rePassword) {
-        this.rePassword = rePassword;
     }
 
     public String getUsername() {
@@ -112,12 +82,11 @@ public class UserDto {
         isActive = active;
     }
 
-    public List getRolesRole() {
+    public Set<RoleDto> getRoles() {
         return roles;
     }
 
-    public void setRolesRole(List roles) {
+    public void setRoles(Set<RoleDto> roles) {
         this.roles = roles;
     }
-
 }

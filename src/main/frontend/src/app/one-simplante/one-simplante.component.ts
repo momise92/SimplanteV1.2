@@ -12,7 +12,7 @@ import {switchMap} from 'rxjs/operators';
     styleUrls: ['./one-simplante.component.css']
 })
 export class OneSimplanteComponent implements OnInit {
-    simplante: Observable<Simplante>;
+    simplante: Simplante;
 
     constructor(
         private route: ActivatedRoute,

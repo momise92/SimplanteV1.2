@@ -4,7 +4,7 @@
         <div class="avatar" style="background-image:url(&quot;../assets/img/simplanteLogo.jpg&quot;);"></div>
         <div class="container">
             <div class="about-me">
-                <p>{{ description }}</p><a class="btn btn-outline-primary" role="button" routerLink='/simplante'>Clique
+                <p>{{ description }}</p><a class="btn btn-outline-primary" roles="button" routerLink='/simplante'>Clique
                 ici</a>
             </div>
         </div>
@@ -36,7 +36,7 @@
                         <h3>{{s.title}}</h3>
                         <h4>{{s.body}}</h4>
                         <a [routerLink]="['/simplante', s.id]" class="btn btn-outline-primary btn-sm"
-                           role="button">Voir</a>
+                           roles="button">Voir</a>
                     </div>
                 </div>
             </div>
