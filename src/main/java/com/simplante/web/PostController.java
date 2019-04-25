@@ -1,11 +1,9 @@
 package com.simplante.web;
 
+import com.simplante.dto.CategoryDto;
 import com.simplante.dto.PostDto;
-import com.simplante.dto.mapper.CategoryMapper;
 import com.simplante.dto.mapper.ObjectMapperUtils;
-import com.simplante.dto.mapper.PostMapper;
 import com.simplante.model.Post;
-import com.simplante.service.CategoryService;
 import com.simplante.service.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -21,36 +19,14 @@ import javax.validation.Valid;
 public class PostController {
 
     private final PostService postService;
-    private final PostMapper postMapper;
-    private final CategoryService categoryService;
-    private final CategoryMapper categoryMapper;
 
 
     /**
      * @param postService
-     * @param postMapper
-     * @param categoryService
-     * @param categoryMapper
      */
-    public PostController(PostService postService, PostMapper postMapper,
-                          CategoryService categoryService, CategoryMapper categoryMapper) {
+    public PostController(PostService postService) {
         this.postService = postService;
-        this.postMapper = postMapper;
-        this.categoryService = categoryService;
-        this.categoryMapper = categoryMapper;
     }
-
-    /**
-     * @return
-     */
-
-    /*@GetMapping
-    public ResponseEntity<?>listAllPosts(){
-        log.debug("get list All Posts");
-        return new ResponseEntity<>(postMapper.listPostsToListPostsDto(postService.listPost()),
-                HttpStatus.OK);
-    }*/
-
 
     /**
      * @return
@@ -92,7 +68,7 @@ public class PostController {
             Post post = postService.findById(id);
             if (post == null)
                 throw new Exception("POST_NOT_FOUND");
-            return ResponseEntity.ok(categoryMapper.categoryToDto(postService.getCategoryByPost(post)));
+            return ResponseEntity.ok(ObjectMapperUtils.map(postService.getCategoryByPost(post), CategoryDto.class));
             /*return new ResponseEntity<>(result, HttpStatus.OK);*/
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -115,8 +91,8 @@ public class PostController {
             if (postService.findByTitle(postDto.getTitle()) != null)
                 return new ResponseEntity<Object>(new Exception("Title already exist"), HttpStatus.CONFLICT);
 
-            Post result = postService.savePost(postMapper.postDtoToPost(postDto));
-            return new ResponseEntity<>(postMapper.postToPostDto(result), HttpStatus.CREATED);
+            Post result = postService.savePost(ObjectMapperUtils.map(postDto, Post.class));
+            return new ResponseEntity<>(ObjectMapperUtils.map(result, PostDto.class), HttpStatus.CREATED);
         } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -137,8 +113,8 @@ public class PostController {
             if (postService.findById(id) == null)
                 return new ResponseEntity<>("This post not exist", HttpStatus.FORBIDDEN);
             postDto.setId(id);
-            Post result = postService.updatePost(postMapper.postDtoToPost(postDto));
-            return new ResponseEntity<>(postMapper.postToPostDto(result), HttpStatus.CREATED);
+            Post result = postService.updatePost(ObjectMapperUtils.map(postDto, Post.class));
+            return new ResponseEntity<>(ObjectMapperUtils.map(result, PostDto.class), HttpStatus.CREATED);
 
         } catch (Exception e) {
             log.error(e.getMessage());

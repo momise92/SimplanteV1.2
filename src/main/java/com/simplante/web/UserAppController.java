@@ -5,10 +5,6 @@ import com.simplante.dto.PostDto;
 import com.simplante.dto.UserDto;
 import com.simplante.dto.UserRegistrationDto;
 import com.simplante.dto.mapper.ObjectMapperUtils;
-import com.simplante.dto.mapper.PostMapper;
-import com.simplante.dto.mapper.RegistrationMapper;
-import com.simplante.dto.mapper.UserMapper;
-import com.simplante.model.Post;
 import com.simplante.model.UserApp;
 import com.simplante.service.UserAppService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * @author Moïse Coulanges

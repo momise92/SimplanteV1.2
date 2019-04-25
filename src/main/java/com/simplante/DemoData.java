@@ -31,7 +31,7 @@ public class DemoData implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-       /* Category category1 = new Category();
+        Category category1 = new Category();
         category1.setName("Drôle");
         categoryRepository.save(category1);
 
@@ -68,5 +68,5 @@ public class DemoData implements ApplicationRunner {
 
         userAppService.addRoleToUser("admin", "ADMIN");
 
-    }*/
-}}
+    }
+}
