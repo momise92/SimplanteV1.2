@@ -47,7 +47,7 @@ public class PostController {
     public ResponseEntity<?> findById(@PathVariable Long id) {
         try {
             if (postService.findById(id) == null)
-                return new ResponseEntity<Object>(new Exception("Post not exist"), HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(new Exception("Post not exist"), HttpStatus.NOT_FOUND);
 
             log.debug("Get post by ID");
             return new ResponseEntity<>(postService.findById(id), HttpStatus.OK);
@@ -86,10 +86,10 @@ public class PostController {
 
         try {
             if (postDto.getId() != null)
-                return new ResponseEntity<Object>(new Exception("Please remove the Id"), HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<>(new Exception("Please remove the Id"), HttpStatus.UNAUTHORIZED);
 
             if (postService.findByTitle(postDto.getTitle()) != null)
-                return new ResponseEntity<Object>(new Exception("Title already exist"), HttpStatus.CONFLICT);
+                return new ResponseEntity<>(new Exception("Title already exist"), HttpStatus.CONFLICT);
 
             Post result = postService.savePost(ObjectMapperUtils.map(postDto, Post.class));
             return new ResponseEntity<>(ObjectMapperUtils.map(result, PostDto.class), HttpStatus.CREATED);
@@ -136,7 +136,7 @@ public class PostController {
             postService.deletePost(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
-            log.error("delete post :", e.getMessage());
+            log.error("delete post : {}", e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
 

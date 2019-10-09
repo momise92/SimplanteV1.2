@@ -2,7 +2,6 @@ package com.simplante;
 
 import com.simplante.dto.PostDto;
 import com.simplante.dto.mapper.ObjectMapperUtils;
-import com.simplante.dto.mapper.PostMapper;
 import com.simplante.model.Post;
 import org.junit.Test;
 import org.junit.runner.RunWith;

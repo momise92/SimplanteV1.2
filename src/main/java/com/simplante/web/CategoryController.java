@@ -4,11 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.simplante.dto.mapper.ObjectMapperUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,11 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.simplante.dto.CategoryDto;
 import com.simplante.dto.PostDto;
-import com.simplante.dto.mapper.CategoryMapper;
-import com.simplante.dto.mapper.PostMapper;
 import com.simplante.model.Category;
 import com.simplante.service.CategoryService;
-import com.simplante.service.PostService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,33 +29,29 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CategoryController {
 
-    private final CategoryMapper categoryMapper;
-    private final PostMapper postMapper;
+
+
     private final CategoryService categoryService;
 
 
     /**
-     * @param postService
-     * @param categoryMapper
-     * @param postMapper
-     * @param categoryService
+     *
+     * @param categoryService service for this
+     *
      */
-    public CategoryController(PostService postService, CategoryMapper categoryMapper,
-                              PostMapper postMapper, CategoryService categoryService) {
-        this.categoryMapper = categoryMapper;
-        this.postMapper = postMapper;
+    public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 
 
     /**
-     * @return
+     * @return return list of categories
      */
     @GetMapping
     public ResponseEntity<?> listAllCategories() {
         log.debug("get list Categories");
-        return new ResponseEntity<>(categoryMapper.CategoriesToListDto(
-                categoryService.ListCategories()), HttpStatus.OK);
+        return new ResponseEntity<>(ObjectMapperUtils.mapAll(
+                categoryService.ListCategories(), CategoryDto.class), HttpStatus.OK);
     }
 
 
@@ -75,7 +66,7 @@ public class CategoryController {
                 return new ResponseEntity<Object>(new Exception("Category not exist"), HttpStatus.NOT_FOUND);
 
             log.debug("Get post by ID");
-            return new ResponseEntity<>(categoryMapper.categoryToDto(categoryService.findById(id)), HttpStatus.OK);
+            return new ResponseEntity<>(ObjectMapperUtils.map(categoryService.findById(id), CategoryDto.class), HttpStatus.OK);
         } catch (Exception e) {
             log.error("Find by id : ", e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -91,8 +82,8 @@ public class CategoryController {
         try {
             Category category = categoryService.findById(id);
             if (category == null)
-                return new ResponseEntity<Object>(new Exception("CATEGORY_NOT_FOUND "), HttpStatus.NOT_FOUND);
-            List<PostDto> result = postMapper.listPostsToListPostsDto(categoryService.getPostsByCategory(id));
+                return new ResponseEntity<>(new Exception("CATEGORY_NOT_FOUND "), HttpStatus.NOT_FOUND);
+            List<PostDto> result = ObjectMapperUtils.mapAll(categoryService.getPostsByCategory(id), PostDto.class);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -114,8 +105,8 @@ public class CategoryController {
             if (categoryService.findByName(categoryDto.getName()) != null)
                 return new ResponseEntity<>(new Exception("Category already exist"), HttpStatus.CONFLICT);
 
-            Category result = categoryService.createCategory(categoryMapper.DtoToCategory(categoryDto));
-            return new ResponseEntity<>(categoryMapper.categoryToDto(result), HttpStatus.CREATED);
+            Category result = categoryService.createCategory(ObjectMapperUtils.map(categoryDto, Category.class));
+            return new ResponseEntity<>(ObjectMapperUtils.map(result, CategoryDto.class), HttpStatus.CREATED);
         } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -135,8 +126,8 @@ public class CategoryController {
             if (categoryService.findById(id) == null)
                 return new ResponseEntity<>("This category not exist", HttpStatus.FORBIDDEN);
             categoryDto.setId(id);
-            Category result = categoryService.updateCategory(categoryMapper.DtoToCategory(categoryDto));
-            return new ResponseEntity<>(categoryMapper.categoryToDto(result), HttpStatus.CREATED);
+            Category result = categoryService.updateCategory(ObjectMapperUtils.map(categoryDto, Category.class));
+            return new ResponseEntity<>(ObjectMapperUtils.map(result, CategoryDto.class), HttpStatus.CREATED);
 
         } catch (Exception e) {
             log.error(e.getMessage());
