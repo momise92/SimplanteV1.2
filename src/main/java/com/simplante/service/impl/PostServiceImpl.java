@@ -50,7 +50,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post savePost(Post post) throws Exception {
         String user = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Post result = null;
+        Post result;
         try {
             post.setUserId(userAppRepository.findByUsername(user).getId());
             post.setCreateDate(LocalDateTime.now());
