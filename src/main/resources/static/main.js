@@ -300,7 +300,7 @@ var AdminSimplantesComponent = /** @class */ (function () {
     AdminSimplantesComponent.prototype.ngOnInit = function () { this.loadSimplante(); };
     AdminSimplantesComponent.prototype.loadSimplante = function () {
         var _this = this;
-        this.simplantesService.getAllSimplantes().subscribe(function (data) { _this.simplantes = data; }, function (err) { console.log(err); });
+        this.simplantesService.getAllSimplantes().subscribe(function (data) { _this.simplantes = data; console.log(data); }, function (err) { console.log(err); });
     };
     AdminSimplantesComponent.prototype.GetSimplanteId = function (id) {
         var _this = this;
@@ -831,8 +831,8 @@ __webpack_require__.r(__webpack_exports__);
 var Config = /** @class */ (function () {
     function Config() {
     }
-    Config.API_URL = '/api';
-    Config.LOGIN_URL = '/login';
+    Config.API_URL = 'http://localhost:8080/api';
+    Config.LOGIN_URL = 'http://localhost:8080/login';
     return Config;
 }());
 
@@ -2035,7 +2035,7 @@ var UserSimplantesComponent = /** @class */ (function () {
     UserSimplantesComponent.prototype.ngOnInit = function () { this.loadSimplante(); };
     UserSimplantesComponent.prototype.loadSimplante = function () {
         var _this = this;
-        this.simplantesService.getSimplanteByUser().subscribe(function (data) { _this.simplantes = data; }, function (error) { console.log(error); });
+        this.simplantesService.getSimplanteByUser().subscribe(function (data) { _this.simplantes = data; console.log(data); }, function (error) { console.log(error); });
     };
     UserSimplantesComponent.prototype.GetSimplanteId = function (id) {
         var _this = this;
